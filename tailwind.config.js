@@ -7,6 +7,11 @@ module.exports = {
         sans: ["Poppins", "sans-serif"],
         poppins: ["Poppins", "sans-serif"],
       },
+      colors: {
+        primary: "#FF91BB",
+        softWhite: "#F0F0F5",
+        softBlack: "#101015",
+      },
     },
   },
   plugins: [],
