@@ -21,6 +21,12 @@ def index():
 def register():
     template = render_template('register.html')
     return runWithCacheControl(template)
+
+@app.route('/findmate')
+def findmate():
+    template = render_template('findmate.html')
+    return runWithCacheControl(template)
+
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))
 
