@@ -538,6 +538,11 @@ video {
   position: relative;
 }
 
+.my-0 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
 .mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -597,6 +602,15 @@ video {
 
 .w-screen {
   width: 100vw;
+}
+
+.w-max {
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.w-auto {
+  width: auto;
 }
 
 .flex-row {
@@ -683,6 +697,11 @@ video {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.py-0 {
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 .text-center {
@@ -823,6 +842,11 @@ video {
     padding-bottom: 6rem;
   }
 
+  .md\:py-16 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
   .md\:text-\[9rem\] {
     font-size: 9rem;
   }
@@ -836,6 +860,10 @@ video {
     font-size: 4.5rem;
     line-height: 1;
   }
+
+  .md\:text-\[4\.5rem\] {
+    font-size: 4.5rem;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -843,9 +871,18 @@ video {
     width: 8rem;
   }
 
+  .lg\:py-24 {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
   .lg\:text-9xl {
     font-size: 8rem;
     line-height: 1;
+  }
+
+  .lg\:text-\[8rem\] {
+    font-size: 8rem;
   }
 }
 
