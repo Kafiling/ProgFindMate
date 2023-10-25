@@ -534,15 +534,6 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.relative {
-  position: relative;
-}
-
-.my-0 {
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-
 .mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -563,29 +554,25 @@ video {
   height: 1rem;
 }
 
-.h-\[7\.5vh\] {
-  height: 7.5vh;
-}
-
-.h-\[75wh\] {
-  height: 75wh;
-}
-
 .h-auto {
   height: auto;
+}
+
+.h-max {
+  height: -moz-max-content;
+  height: max-content;
 }
 
 .h-full {
   height: 100%;
 }
 
-.h-screen {
-  height: 100vh;
+.h-\[35vh\] {
+  height: 35vh;
 }
 
-.h-max {
-  height: -moz-max-content;
-  height: max-content;
+.min-h-screen {
+  min-height: 100vh;
 }
 
 .w-4 {
@@ -596,10 +583,6 @@ video {
   width: 3rem;
 }
 
-.w-full {
-  width: 100%;
-}
-
 .w-screen {
   width: 100vw;
 }
@@ -607,6 +590,10 @@ video {
 .w-max {
   width: -moz-max-content;
   width: max-content;
+}
+
+.w-full {
+  width: 100%;
 }
 
 .w-auto {
@@ -621,12 +608,28 @@ video {
   flex-direction: column;
 }
 
+.place-content-between {
+  place-content: space-between;
+}
+
 .place-items-center {
   place-items: center;
 }
 
+.content-between {
+  align-content: space-between;
+}
+
 .items-center {
   align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
 }
 
 .space-y-8 > :not([hidden]) ~ :not([hidden]) {
@@ -639,19 +642,9 @@ video {
   border-radius: 0.5rem;
 }
 
-.bg-blue-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(147 197 253 / var(--tw-bg-opacity));
-}
-
 .bg-blue-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(59 130 246 / var(--tw-bg-opacity));
-}
-
-.bg-gray-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
 }
 
 .bg-primary {
@@ -679,6 +672,21 @@ video {
   --tw-gradient-to: #1d4ed8 var(--tw-gradient-to-position);
 }
 
+.object-contain {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.object-cover {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.object-center {
+  -o-object-position: center;
+     object-position: center;
+}
+
 .px-10 {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
@@ -699,22 +707,16 @@ video {
   padding-bottom: 2rem;
 }
 
-.py-0 {
-  padding-top: 0px;
-  padding-bottom: 0px;
-}
-
 .text-center {
   text-align: center;
 }
 
-.font-poppins {
-  font-family: Poppins, sans-serif;
+.align-middle {
+  vertical-align: middle;
 }
 
-.text-9xl {
-  font-size: 8rem;
-  line-height: 1;
+.font-poppins {
+  font-family: Poppins, sans-serif;
 }
 
 .text-\[3rem\] {
@@ -729,11 +731,6 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-
-.text-5xl {
-  font-size: 3rem;
-  line-height: 1;
 }
 
 .font-medium {
@@ -785,46 +782,19 @@ video {
 }
 
 @media (min-width: 640px) {
-  .sm\:w-\[3rem\] {
-    width: 3rem;
-  }
-
   .sm\:px-20 {
     padding-left: 5rem;
     padding-right: 5rem;
   }
-
-  .sm\:text-\[5rem\] {
-    font-size: 5rem;
-  }
-
-  .sm\:text-7xl {
-    font-size: 4.5rem;
-    line-height: 1;
-  }
 }
 
 @media (min-width: 768px) {
-  .md\:h-\[35vh\] {
-    height: 35vh;
-  }
-
   .md\:w-\[35vw\] {
     width: 35vw;
   }
 
-  .md\:w-\[9rem\] {
-    width: 9rem;
-  }
-
   .md\:w-\[4\.5rem\] {
     width: 4.5rem;
-  }
-
-  .md\:space-y-16 > :not([hidden]) ~ :not([hidden]) {
-    --tw-space-y-reverse: 0;
-    margin-top: calc(4rem * calc(1 - var(--tw-space-y-reverse)));
-    margin-bottom: calc(4rem * var(--tw-space-y-reverse));
   }
 
   .md\:px-36 {
@@ -837,30 +807,6 @@ video {
     padding-right: 20%;
   }
 
-  .md\:py-24 {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
-  }
-
-  .md\:py-16 {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
-
-  .md\:text-\[9rem\] {
-    font-size: 9rem;
-  }
-
-  .md\:text-9xl {
-    font-size: 8rem;
-    line-height: 1;
-  }
-
-  .md\:text-7xl {
-    font-size: 4.5rem;
-    line-height: 1;
-  }
-
   .md\:text-\[4\.5rem\] {
     font-size: 4.5rem;
   }
@@ -869,16 +815,6 @@ video {
 @media (min-width: 1024px) {
   .lg\:w-\[8rem\] {
     width: 8rem;
-  }
-
-  .lg\:py-24 {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
-  }
-
-  .lg\:text-9xl {
-    font-size: 8rem;
-    line-height: 1;
   }
 
   .lg\:text-\[8rem\] {
