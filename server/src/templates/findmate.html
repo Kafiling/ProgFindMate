@@ -9,7 +9,7 @@
   <link rel="stylesheet" type="text/css" href="tailwindoutput.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.css" rel="stylesheet" />
 </head>
-<body class="w-screen min-h-screen bg-softWhite px-[7.5%] md:px-[20%] ">
+<body class="w-screen min-h-screen bg-softWhite md:px-[20%] ">
   <div class="min-h-screen flex flex-col place-items-center place-content-between ">
     <!-- Header (Dorm Location)--> 
     
@@ -45,7 +45,7 @@
                 <svg class="w-4 h-4 text-yellow-300 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
                     <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
                 </svg>
-                <svg class="w-4 h-4 mr-1 dark:text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                <svg class="w-4 h-4 mr-1 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
                     <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
                 </svg>
                 <p class="ml-2 text-sm font-medium text-gray-500 ">(4.95)</p>
@@ -57,7 +57,7 @@
     
     <!-- content -->
     <section id="" class="flex flex-grow relative w-full">
-        <div class="w-full">
+        <div class="w-full md:px-[20%] ">
             <div class="demo__content">
               <div class="demo__card-cont">
                 <div class="demo__card">
@@ -126,7 +126,41 @@
                     <p class="demo__card__name">Hungry cat</p>
                   </div>
                   <div class="demo__card__btm">
-                    <p class="demo__card__we">Whatever</p>
+                    <!--INFO section-->
+                    <div class="flex flex-row px-2 justify-between">
+
+                      <ul class="flex flex-col space-y-4 text-left ">
+                        <li class="flex items-center space-x-3">
+                            <h2 class="text-xl font-bold">K4filing <span class="text-sm font-medium text-gray-500">18</span></h2>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="flex-shrink-0 w-3.5 h-3.5 text-green-500 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
+                             </svg>
+                            <span>คณะวิทยาศาสตร์</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <svg class="flex-shrink-0 w-3.5 h-3.5 text-green-500 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
+                             </svg>
+                            <span>จุฬาลงกรณ์มหาวิทยาลัย</span>
+                        </li>
+                        
+                    </ul>
+                    
+                    <ul class="flex flex-col space-y-4 items-end  ">
+                      <li class="flex items-center space-x-3">
+                          <h2 class="text-base text-green-500">79% Match!</h2>
+                      </li>
+                      <li class="flex items-center space-x-3">
+                          <span>ปี 1</span>
+                      </li>
+                      <li class="flex items-center space-x-3">
+                          <span class="text-blue-600">(คลิกเพื่อดูรายละเอียด)</span>
+                      </li>
+                      
+                  </ul>
+                    </div>
                   </div>
                   <div class="demo__card__choice m--reject"></div>
                   <div class="demo__card__choice m--like"></div>
