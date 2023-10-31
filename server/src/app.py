@@ -27,6 +27,16 @@ def findmate():
     template = render_template('findmate.html')
     return runWithCacheControl(template)
 
+@app.route('/matched')
+def matched():
+    template = render_template('matched.html')
+    return runWithCacheControl(template)
+
+@app.route('/profile')
+def profile():
+    template = render_template('profile.html')
+    return runWithCacheControl(template)
+
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))
 
