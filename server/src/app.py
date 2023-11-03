@@ -1,8 +1,12 @@
-from flask import Flask, render_template, make_response
+from flask import Flask, render_template, make_response,redirect
 import os
-import server.src.fireAuth as fireAuth
+'''Import Modular page'''
+from fireAuth import AuthHandler
+
 
 app = Flask(__name__, static_folder="../../static")
+app.register_blueprint(AuthHandler)
+
 
 '''Define Dorm and User Class'''
  
@@ -14,6 +18,7 @@ def runWithCacheControl(template):
     #s-maxage property tells Firebase Hosting to keep the content in the cache for 10 minutes. During this 10 minute period Firebase Hosting will skip running your server code in Cloud Run and serve the cache content directly.
     response.headers['Cache-Control'] = 'public, max-age=300, s-maxage=600'
     return response
+
 
 @app.route('/')
 def index():
