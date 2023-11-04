@@ -46,7 +46,7 @@
   left: 0;
   height: 14px;
   border-radius: 14px;
-  background-color: #1ABC9C;
+  background-color: rgb(244, 168, 238);
 }
 
 [slider] > div > [thumb] {
@@ -148,7 +148,7 @@ div[slider] > input[type=range]::-ms-tooltip {
   margin-left: -11px;
   top: -39px;
   z-index:3;
-  background-color: #1ABC9C;
+  background-color: rgb(244, 168, 238);
   color: #fff;
   width: 28px;
   height: 28px;
@@ -170,7 +170,7 @@ div[slider] > input[type=range]::-ms-tooltip {
   border-right: 14px solid transparent;
   border-top-width: 16px;
   border-top-style: solid;
-  border-top-color: #1ABC9C;
+  border-top-color: rgb(244, 168, 238);
 }
 
 [slider] > div > [sign] > span {

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, make_response,redirect
+from flask import Flask, render_template, make_response,redirect, request
 import os
 '''Import Modular page'''
 from fireAuth import AuthHandler
@@ -27,10 +27,6 @@ def index():
     template = render_template('index.html')
     return runWithCacheControl(template)
 
-
-
-
-
 @app.route('/register')
 def register():
     template = render_template('register.html')
@@ -49,6 +45,20 @@ def matched():
 @app.route('/profile')
 def profile():
     template = render_template('profile.html')
+    return runWithCacheControl(template)
+
+@app.route('/form')
+def form():
+    template = render_template('form.html')
+    return runWithCacheControl(template)
+
+@app.route('/form2',methods = ["GET","POST"])
+def form2():
+    university = 'Waiting respond'
+    if request.method == "POST":  
+        university = request.form.get("university")
+        
+    template = render_template('form2.html',university = university)
     return runWithCacheControl(template)
 
 

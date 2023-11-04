@@ -44,6 +44,6 @@ def loginGoogle():
 def googleCallback():
    user = auth.sign_in_with_oauth_credential(request.url)
    session['user'] = user
-   return user
+   return redirect('/form')
       
   

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dormee! 🏢</title>
+ 	<link rel="stylesheet" type="text/css" href="/static/tailwindoutput.css">
+  <link rel="stylesheet" type="text/css" href="tailwindoutput.css">
+  <!--<link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">-->
+  <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="/static/importFont.css">
+  <link rel="stylesheet" type="text/css" href="importFont.css">
+</head>
+
+<body class="w-screen min-h-screen bg-softWhite px-[7.5%] md:px-[20%] ">
+  <div class="min-h-screen flex flex-col place-items-center py-8 gap-y-8">
+    <!--detailed stepper-->
+    <ol class="items-center space-y-4 sm:flex sm:space-x-8 sm:space-y-0">
+      <a href="/form">
+      <li class="flex items-center text-gray-500   space-x-2.5">
+          <span class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 ">
+              1
+          </span>
+          <span>
+              <h3 class="font-medium ">Login</h3>
+              <p class="text-sm">Step details here</p>
+          </span>
+      </li>
+      </a>
+      <a href="/form2">
+      <li class="flex items-center text-blue-600  space-x-2.5">
+          <span class="flex items-center justify-center w-8 h-8 border border-blue-600 rounded-full shrink-0 " >
+              2
+          </span>
+          <span>
+              <h3 class="font-medium ">Edit profile</h3>
+              <p class="text-sm">Step details here</p>
+          </span>
+      </li>
+      </a>
+      <a href="/form3">
+      <li class="flex items-center text-gray-500  space-x-2.5">
+          <span class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 ">
+              3
+          </span>
+          <span>
+              <h3 class="font-medium ">Almost Finish</h3>
+              <p class="text-sm">Step details here</p>
+          </span>
+      </li>
+      </a>
+      <a href="/form4">
+      <li class="flex items-center text-gray-500  space-x-2.5">
+        <span class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 ">
+            4
+        </span>
+        <span>
+            <h3 class="font-medium ">Finish</h3>
+            <p class="text-sm">Step details here</p>
+        </span>
+    </li>
+    </a>
+  </ol>
+
+  <div class="container max-w-screen-lg mx-auto">
+    <div>
+      <h2 class="font-semibold text-xl text-gray-600">Resgister Form</h2>
+      <p class="text-gray-500 mb-6">กรุณากรอกข้อมูลให้ครบ</p>
+
+      <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
+        <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
+          <div class="text-gray-600">
+            <p class="font-medium text-lg">Personal Details</p>
+            <p>กรุณากรอกข้อมูลให้ครบทุกช่อง</p>
+            <!--Upload Avartar-->
+            
+
+          </div>
+          <!--Avartar-->
+          <div class="md:col-span-3">
+          <form action="{{url_for('form2')}}" method="post">
+                        <div class="border-b border-gray-900/10 pb-12">
+                          <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">         
+                            <div class="sm:col-span-5">
+                            <label for="country" class="block text-sm font-medium leading-6 text-gray-900">University</label>
+                            <div class="mt-3">
+                              <select name="university-select" id="university-select"  autocomplete="country-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                                <option value="จุฬาลงกรณ์มหาวิทยาลัย">จุฬาลงกรณ์มหาวิทยาลัย</option>
+                                <option value="มหาวิทยาลัยธรรมศาสตร์">มหาวิทยาลัยธรรมศาสตร์</option>
+                                <option value="มหาวิทยาลัยมหิดล">มหาวิทยาลัยมหิดล</option>
+                                <option value="มหาวิทยาลัยศรีนครินทรวิโรฒ">มหาวิทยาลัยศรีนครินทรวิโรฒ</option>
+                                <option value="มหาวิทยาลัยเชียงใหม่">มหาวิทยาลัยเชียงใหม่</option>
+                              </select>
+                              <img class="w-full h-auto" id="university-image" src="" alt="University Image">
+                            
+                            
+                          </div>   
+                          <pre>
+                            
+                            </pre>
+                            
+                        <script>
+                         
+                             // Get references to the select element and the display elements
+                            const select = document.getElementById('university-select');
+                            const image = document.getElementById('university-image');
+                             // Define details and image data for each item
+                            const itemData = {
+                                จุฬาลงกรณ์มหาวิทยาลัย: {
+                                      imageSrc: "https://www.chula.ac.th/wp-content/uploads/2018/03/home-chula-1440x900.jpg"
+                                  },
+                                มหาวิทยาลัยธรรมศาสตร์: {
+                                      imageSrc: "https://tu.ac.th/uploads/attraction/_181009_0011.jpg"
+                                  },
+                                  มหาวิทยาลัยมหิดล: {
+                                      imageSrc: "https://mahidol.ac.th/temp/2022/11/MU-Alumni-BannerWeb-01-1.jpg"
+                                  },
+                                  มหาวิทยาลัยศรีนครินทรวิโรฒ: {
+                                      imageSrc: "https://pbs.twimg.com/media/CmAcGr0UgAAheV-?format=jpg&name=4096x4096"
+                                  },
+                                  มหาวิทยาลัยเชียงใหม่: {
+                                      imageSrc: "https://www.matichonweekly.com/wp-content/uploads/2020/05/%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%A7%E0%B8%B4%E0%B8%97%E0%B8%A2%E0%B8%B2%E0%B8%A5%E0%B8%B1%E0%B8%A2%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%882.jpg"
+                                  }
+                                  
+                              };
+                            
+              
+                            // Add an event listener to the select element
+                            
+                              select.addEventListener('change', () => {
+                            const selectedItem = select.value;
+                            image.src = itemData[selectedItem].imageSrc;
+                            })
+                            
+                            ;
+                        </script>
+                        </div>
+                        <div class="md:col-span-2">
+                          <label for="city">Faculty</label>
+                          <input type="text" name="Faculty" id="Faculty" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="โรคหอบหืด" />
+                        </div>
+                        <!--
+                        <div class="sm:col-span-2">
+                          <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Faculty</label>
+                          <div class="mt-3">
+                            <select id="country" name="country" autocomplete="country-name" class="bh-10 border mt-1 rounded px-4 w-full bg-gray-50">
+                              <option>คณะเกษตรศาสตร์</option>
+                              <option>คณะครุศาสตร์อุตสาหกรรม</option>
+                              <option>คณะเทคโนโลยี</option>
+                              <option>คณะเทคโนโลยีสารสนเทศ</option>
+                              <option>คณะประมง</option>
+                              <option>คณะวิทยาศาสตร์</option>
+                              <option>คณะวิศวกรรมศาสตร์</option>
+                              <option>คณะสิ่งแวดล้อม</option>
+                              <option>คณะสัตวศาสตร์</option>
+                              <option>คณะกายภาพบำบัด</option>
+                              <option>คณะการแพทย์แผนไทย</option>
+                              <option>คณะทันตแพทยศาสตร์</option>
+                              <option>คณะพยาบาลศาสตร์</option>
+                              <option>คณะเภสัชศาสตร์</option>
+                              <option>คณะสหเวชศาสตร์</option>
+                              <option>คณะสัตวแพทยศาสตร์</option>
+                              <option>คณะสาธารณสุขศาสตร์</option>
+                              <option>คณะทัศนมาตรศาสตร์</option>
+                              <option>คณะเทคนิคการสัตวแพทย์</option>
+                              <option>คณะการแพทย์ทางเลือก</option>
+                              <option>คณะการกำหนดอาหารและโภชนาการ</option>
+                              <option>คณะพยาบาลทางเลือก</option>
+                              <option>คณะการแพทย์อนามัย</option>
+                              <option>คณะเวชศาสตร์เขตร้อน</option>
+                              <option>คณะการแพทย์แผนจีน</option>
+                              <option>คณะการแพทย์แผนไทยประยุกต์</option>
+                              <option>คณะแพทย์แผนปัจจุบัน</option>
+                              <option>คณะการแพทย์เฉพาะทาง</option>
+                              <option>คณะพยาบาลเฉพาะทาง</option>
+                              <option>คณะสาธารณสุขเฉพาะทาง</option>
+                              <option>คณะนิติศาสตร์</option>
+                              <option>คณะนิเทศศาสตร์</option>
+                              <option>คณะบริหารธุรกิจและการบัญชี</option>
+                              <option>คณะมนุษยศาสตร์</option>
+                              <option>คณะรัฐศาสตร์</option>
+                              <option>คณะศิลปกรรมศาสตร์</option>
+                              <option>คณะศึกษาศาสตร์</option>
+                              <option>คณะเศรษฐศาสตร์</option>
+                              <option>คณะสถาปัตยกรรมศาสตร์</option>
+                              <option>คณะสังคมศาสตร์</option>
+                              <option>คณะสังคมสงเคราะห์ศาสตร์</option>
+                              <option>คะน้าหมูกรอบพิเศษไข่ดาวไม่สุก</option>
+                            </select>
+                          </div>
+                        </div>
+                      -->
+                        <div class="md:col-span-2">
+                          <label for="city">Major</label>
+                          <input type="text" name="Major" id="Major" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="โรคหอบหืด" />
+                        </div>
+                        <div class="md:col-span-1">
+                          <label for="city">Year</label>
+                          <input type="text" name="Year" id="Year" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="โรคหอบหืด" />
+                        </div>
+                          </div>
+                          <pre>
+
+                          </pre>
+                          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+                        </div>
+                        
+                  
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+              <!--
+              <div class="sm:col-span-3">
+                <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Faculty</label>
+                <div class="mt-2">
+                  <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+              </div>
+            -->
+               
+        
+</body>
+</html>
