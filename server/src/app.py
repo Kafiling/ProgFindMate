@@ -5,6 +5,7 @@ from fireAuth import AuthHandler
 
 
 app = Flask(__name__, static_folder="../../static")
+app.secret_key = os.environ.get("app.secret_key")
 app.register_blueprint(AuthHandler)
 
 
@@ -26,6 +27,10 @@ def index():
     template = render_template('index.html')
     return runWithCacheControl(template)
 
+
+
+
+
 @app.route('/register')
 def register():
     template = render_template('register.html')
@@ -45,6 +50,7 @@ def matched():
 def profile():
     template = render_template('profile.html')
     return runWithCacheControl(template)
+
 
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))

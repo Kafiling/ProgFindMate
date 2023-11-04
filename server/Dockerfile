@@ -5,10 +5,13 @@ FROM python:3.12
 RUN pip install Flask gunicorn
 
 # 3 Install production dependencies.
-
-
+RUN pip install firebase-rest-api
+RUN pip install python-dotenv
+#RUN pip install Flask-Session
 # 4
 COPY src/ /app
+COPY src/ /fireAuth
+COPY src/ /.env
 WORKDIR /app
 
 # 5

@@ -1,4 +1,5 @@
-from flask import Flask, render_template, make_response,redirect,Blueprint
+from flask import Flask, render_template, make_response,redirect,Blueprint,request,session
+import random
 # Import Firebase REST API library
 import firebase
 
@@ -34,6 +35,15 @@ client_secret_config = {
 
 auth = firebaseApp.auth(client_secret=client_secret_config)
 
+
 @AuthHandler.route('/login')
-def login_google():
-   return redirect(auth.create_authentication_uri('google.com'))
+def loginGoogle():
+    return redirect(auth.create_authentication_uri('google.com'))
+
+@AuthHandler.route('/__/auth/handler')
+def googleCallback():
+   user = auth.sign_in_with_oauth_credential(request.url)
+   session['user'] = user
+   return user
+      
+  
