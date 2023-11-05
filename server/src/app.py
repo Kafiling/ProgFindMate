@@ -1,5 +1,8 @@
-from flask import Flask, render_template, make_response,redirect, request
+from flask import Flask, render_template, make_response,redirect, request,session,flash
 import os
+import functools
+# Import Firebase REST API library
+import firebase
 '''Import Modular page'''
 from fireAuth import AuthHandler
 
@@ -9,6 +12,20 @@ app.secret_key = os.environ.get("app.secret_key")
 app.register_blueprint(AuthHandler)
 
 
+firebaseConfig = {
+  'apiKey': "AIzaSyCg_HRI6tZ-MGIDnWtOJ7KmjKtS9lkucKI",
+  'authDomain': "use-dormee.firebaseapp.com",
+  'projectId': "use-dormee",
+  'storageBucket': "use-dormee.appspot.com",
+  'messagingSenderId': "257935959517",
+  'appId': "1:257935959517:web:164dfec3b77058e4674234",
+  'measurementId': "G-X69RF0FDE1",
+  'databaseURL': ""
+};
+
+# Instantiates a Firebase app
+firebaseApp = firebase.initialize_app(firebaseConfig)
+fsdb = firebaseApp.firestore()
 '''Define Dorm and User Class'''
  
 
@@ -20,6 +37,19 @@ def runWithCacheControl(template):
     response.headers['Cache-Control'] = 'public, max-age=300, s-maxage=600'
     return response
 
+def login_required(view):
+    @functools.wraps(view)
+    def wrapped_view(**kwargs):
+        try:
+            session['user']
+        except KeyError:
+            print('You must login to access this')
+            return redirect('/accessDenied')
+
+        return view(**kwargs)
+
+    return wrapped_view
+
 
 @app.route('/')
 def index():
@@ -27,32 +57,36 @@ def index():
     template = render_template('index.html')
     return runWithCacheControl(template)
 
-@app.route('/register')
-def register():
-    template = render_template('register.html')
+# Denied access of those who don't have authentication
+@app.route('/accessDenied')
+def accessDenied():
+    template = render_template('accessDenied.html')
     return runWithCacheControl(template)
 
-@app.route('/findmate')
-def findmate():
-    template = render_template('findmate.html')
-    return runWithCacheControl(template)
-
-@app.route('/matched')
-def matched():
-    template = render_template('matched.html')
-    return runWithCacheControl(template)
-
-@app.route('/profile')
-def profile():
-    template = render_template('profile.html')
-    return runWithCacheControl(template)
-
-@app.route('/form')
+# 4 step form for first-time user
+@app.route('/form',methods = ["GET","POST"])
+@login_required
 def form():
     template = render_template('form.html')
+    if request.method == "POST":
+        # getting input in HTML form
+        return redirect('/')
+    data = {
+        #TODO upload image is not working!!
+        'userImg' : request.args.get("userImg"),
+        'displayName' : request.args.get("displayName") ,
+        'bDay' : request.args.get("bDay") ,
+        'religion' : request.args.get("religion") ,
+        'contactNote' : request.args.get("contactNote") ,
+        'healthNote' : request.args.get("healthNote"), 
+        }
+    user = session['user'] 
+    print(data)
+    fsdb.collection('User').document(user['email']).update(data,token=user['idToken'])
     return runWithCacheControl(template)
 
 @app.route('/form2',methods = ["GET","POST"])
+@login_required
 def form2():
     university = 'Waiting respond'
     if request.method == "POST":  
@@ -62,14 +96,36 @@ def form2():
     return runWithCacheControl(template)
 
 @app.route('/form3')
+@login_required
 def form3():
     template = render_template('form3.html')
     return runWithCacheControl(template)
 
 @app.route('/dorm_advise')
+@login_required
 def dorm_advise():
     template = render_template('dorm_advise.html')
     return runWithCacheControl(template)
+
+@app.route('/findmate')
+@login_required
+def findmate():
+    template = render_template('findmate.html')
+    return runWithCacheControl(template)
+
+@app.route('/matched')
+@login_required
+def matched():
+    template = render_template('matched.html')
+    return runWithCacheControl(template)
+
+@app.route('/profile')
+@login_required
+def profile():
+    template = render_template('profile.html')
+    return runWithCacheControl(template)
+
+
 
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))

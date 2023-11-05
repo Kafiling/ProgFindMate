@@ -1,5 +1,4 @@
 from flask import Flask, render_template, make_response,redirect,Blueprint,request,session
-import random
 # Import Firebase REST API library
 import firebase
 
@@ -58,3 +57,4 @@ def googleCallback():
 def logout():
     session.clear()
     return redirect('/') 
+
