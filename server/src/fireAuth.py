@@ -32,9 +32,9 @@ client_secret_config = {
    "client_secret": os.environ.get("client_secret"),
    "redirect_uris": [os.environ.get("redirect_uris")]
 }
-
+#init FireAuth and Firestore
 auth = firebaseApp.auth(client_secret=client_secret_config)
-
+fsdb = firebaseApp.firestore()
 
 @AuthHandler.route('/login')
 def loginGoogle():
@@ -44,6 +44,17 @@ def loginGoogle():
 def googleCallback():
    user = auth.sign_in_with_oauth_credential(request.url)
    session['user'] = user
+   session['userEmail'] = user['email']
+   try:
+      fsdb.collection('User').document(user['email']).get(token=user['idToken'])
+   except:
+      data = {
+      "userEmail": user['email']
+      }
+      fsdb.collection('User').document(user['email']).set(data,token=user['idToken'])
    return redirect('/form')
       
-  
+@AuthHandler.route('/logout')
+def logout():
+    session.clear()
+    return redirect('/') 

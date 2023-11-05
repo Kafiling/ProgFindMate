@@ -61,6 +61,15 @@ def form2():
     template = render_template('form2.html',university = university)
     return runWithCacheControl(template)
 
+@app.route('/form3')
+def form3():
+    template = render_template('form3.html')
+    return runWithCacheControl(template)
+
+@app.route('/dorm_advise')
+def dorm_advise():
+    template = render_template('dorm_advise.html')
+    return runWithCacheControl(template)
 
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))

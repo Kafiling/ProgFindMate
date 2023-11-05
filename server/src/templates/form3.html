@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dormee! 🏢</title>
+ 	<link rel="stylesheet" type="text/css" href="/static/tailwindoutput.css">
+  <link rel="stylesheet" type="text/css" href="tailwindoutput.css">
+  <!--<link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">-->
+  <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="/static/importFont.css">
+  <link rel="stylesheet" type="text/css" href="importFont.css">
+</head>
+
+<body class="w-screen min-h-screen bg-softWhite px-[7.5%] md:px-[20%] ">
+  <div class="min-h-screen flex flex-col place-items-center place-content-between py-8">
+    <!--detailed stepper-->
+    <ol class="items-center space-y-4 sm:flex sm:space-x-8 sm:space-y-0">
+      <li class="flex items-center text-blue-600 dark:text-blue-500 space-x-2.5">
+          <span class="flex items-center justify-center w-8 h-8 border border-blue-600 rounded-full shrink-0 dark:border-blue-500">
+              1
+          </span>
+          <span>
+              <h3 class="font-medium ">Login</h3>
+              <p class="text-sm">Step details here</p>
+          </span>
+      </li>
+      <li class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
+          <span class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400" >
+              2
+          </span>
+          <span>
+              <h3 class="font-medium ">Edit profile</h3>
+              <p class="text-sm">Step details here</p>
+          </span>
+      </li>
+      <li class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
+          <span class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+              3
+          </span>
+          <span>
+              <h3 class="font-medium ">Almost Finish</h3>
+              <p class="text-sm">Step details here</p>
+          </span>
+      </li>
+      <li class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
+        <span class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+            4
+        </span>
+        <span>
+            <h3 class="font-medium ">Finish</h3>
+            <p class="text-sm">Step details here</p>
+        </span>
+    </li>
+  </ol>
+
+    <!--detailed stepper-->
+<pre> 
+
+
+</pre>
+
+
+  <div class="container max-w-screen-lg mx-auto">
+    <div>
+      <h2 class="font-semibold text-xl text-gray-600">Resgister Form</h2>
+      <p class="text-gray-500 mb-6">กรุณากรอกข้อมูลให้ครบ.</p>
+
+      <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
+        <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
+          <div class="text-gray-600">
+            <p class="font-medium text-lg">Personal Details</p>
+            <p>กรุณากรอกข้อมูลให้ครบทุก Form.</p>
+            <!--Upload Avartar-->
+            
+
+          </div>
+          <!--Avartar-->
+          <div class="md:col-span-5">
+          
+                        <div class="md:col-span-4">
+                          <label for="city">เวลานอน</label>
+                          <div slider id="slider-distance">
+                            <div>
+                              <div inverse-left style="width:70%;"></div>
+                              <div inverse-right style="width:70%;"></div>
+                              <div range style="left:30%;right:40%;"></div>
+                              <span thumb style="left:30%;"></span>
+                              <span thumb style="left:60%;"></span>
+                              <div sign style="left:30%;">
+                                <span id="value">30</span>
+                              </div>
+                              <div sign style="left:60%;">
+                                <span id="value">60</span>
+                              </div>
+                            </div>
+                            <input type="range" tabindex="0" value="30" max="100" min="0" step="3.125" oninput="
+                            this.value=Math.min(this.value,this.parentNode.childNodes[5].value-1);
+                            var value=(100/(parseInt(this.max)-parseInt(this.min)))*parseInt(this.value)-(100/(parseInt(this.max)-parseInt(this.min)))*parseInt(this.min);
+                            
+                            var children = this.parentNode.childNodes[1].childNodes;
+                            children[1].style.width=value+'%';
+                            children[5].style.left=value+'%';
+                            children[7].style.left=value+'%';children[11].style.left=value+'%';
+                            children[11].childNodes[1].innerHTML=this.value;" />
+                          
+                            <input type="range" tabindex="0" value="60" max="100" min="0" step="3.125" oninput="
+                            this.value=Math.max(this.value,this.parentNode.childNodes[3].value-(-1));
+                            var value=(100/(parseInt(this.max)-parseInt(this.min)))*parseInt(this.value)-(100/(parseInt(this.max)-parseInt(this.min)))*parseInt(this.min);
+                            var children = this.parentNode.childNodes[1].childNodes;
+                            children[3].style.width=(100-value)+'%';
+                            children[5].style.right=(100-value)+'%';
+                            children[9].style.left=value+'%';children[13].style.left=value+'%';
+                            children[13].childNodes[1].innerHTML=this.value;" />
+                               
+                        </div>
+                        </div>
+                        
+                        </div>
+
+                          <div class="md:col-span-0">
+                            
+                        </div>
+                        <div class="md:col-span-1">
+                          <p>นอนเปิดไฟ</p>
+                          <label><input type="checkbox" checked /></label>
+                      </div>
+                      <div class="md:col-span-1">
+                        <p>นอนปิดไฟ</p>
+                        <label><input type="checkbox" checked /></label>
+                    </div>
+                        </div>
+                      
+                      
+                            
+
+                            
+                            <div class="md:col-span-4">
+                              <label for="timebath">เวลาอาบน้ำ</label>
+                              <div slider id="slider-distance">
+                                <div>
+                                  <div inverse-left style="width:70%;"></div>
+                                  <div inverse-right style="width:70%;"></div>
+                                  <div range style="left:30%;right:40%;"></div>
+                                  <span thumb style="left:30%;"></span>
+                                  <span thumb style="left:60%;"></span>
+                                  <div sign style="left:30%;">
+                                    <span id="value">30</span>
+                                  </div>
+                                  <div sign style="left:60%;">
+                                    <span id="value">60</span>
+                                  </div>
+                                </div>
+                                <input type="range" tabindex="0" value="30" max="100" min="0" step="3.125" oninput="
+                                this.value=Math.min(this.value,this.parentNode.childNodes[5].value-1);
+                                var value=(100/(parseInt(this.max)-parseInt(this.min)))*parseInt(this.value)-(100/(parseInt(this.max)-parseInt(this.min)))*parseInt(this.min);
+                                
+                                var children = this.parentNode.childNodes[1].childNodes;
+                                children[1].style.width=value+'%';
+                                children[5].style.left=value+'%';
+                                children[7].style.left=value+'%';children[11].style.left=value+'%';
+                                children[11].childNodes[1].innerHTML=this.value;" />
+                              
+                                <input type="range" tabindex="0" value="60" max="100" min="0" step="3.125" oninput="
+                                this.value=Math.max(this.value,this.parentNode.childNodes[3].value-(-1));
+                                var value=(100/(parseInt(this.max)-parseInt(this.min)))*parseInt(this.value)-(100/(parseInt(this.max)-parseInt(this.min)))*parseInt(this.min);
+                                var children = this.parentNode.childNodes[1].childNodes;
+                                children[3].style.width=(100-value)+'%';
+                                children[5].style.right=(100-value)+'%';
+                                children[9].style.left=value+'%';children[13].style.left=value+'%';
+                                children[13].childNodes[1].innerHTML=this.value;" />
+                              </div>
+                              <pre>
+
+                              </pre>
+                              <div class="md:col-span-2">
+                                <label for="city">หมายเหตุ: </label>
+                                <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="แพ้ขนหมา" />
+                              </div>
+                              <pre>
+
+                              </pre>
+                              <div class="md:col-span-2">
+                                <label for="city">อื่นๆ: </label>
+                                <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                              </div>
+                              <pre>
+
+                              </pre>
+                              <button class="bg-pink-300 hover:bg-prink-300 text-white font-bold py-2 px-4 rounded">Submit</button>
+                            
+                            </div>
+                            </div>                        
+                          <pre>
+
+                          </pre>
+                        </div>
+                        
+                  
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+              <!--
+              <div class="sm:col-span-3">
+                <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Faculty</label>
+                <div class="mt-2">
+                  <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+              </div>
+            -->
+               
+        
+</body>
+</html>
