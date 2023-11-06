@@ -26,6 +26,7 @@ firebaseConfig = {
 # Instantiates a Firebase app
 firebaseApp = firebase.initialize_app(firebaseConfig)
 fsdb = firebaseApp.firestore()
+storage = firebaseApp.storage()
 '''Define Dorm and User Class'''
  
 
@@ -70,19 +71,22 @@ def form():
     template = render_template('form.html')
     if request.method == "POST":
         # getting input in HTML form
-        return redirect('/')
-    data = {
-        #TODO upload image is not working!!
-        'userImg' : request.args.get("userImg"),
-        'displayName' : request.args.get("displayName") ,
-        'bDay' : request.args.get("bDay") ,
-        'religion' : request.args.get("religion") ,
-        'contactNote' : request.args.get("contactNote") ,
-        'healthNote' : request.args.get("healthNote"), 
-        }
-    user = session['user'] 
-    print(data)
-    fsdb.collection('User').document(user['email']).update(data,token=user['idToken'])
+
+        data = {
+            #TODO upload image is not working!!
+            'displayName' : request.form.get("displayName") ,
+            'bDay' : request.form.get("bDay") ,
+            'religion' : request.form.get("religion") ,
+            'contactNote' : request.form.get("contactNote") ,
+            'healthNote' : request.form.get("healthNote"), 
+            }
+        userImg = request.files.get("userImg")
+        user = session['user'] 
+        fsdb.collection('User').document(user['email']).update(data,token=user['idToken'])
+        storage.child(f"userFile/{user['email']}.jpg").put(userImg)
+    
+        if data['displayName'] != None:
+            return redirect('/form2')
     return runWithCacheControl(template)
 
 @app.route('/form2',methods = ["GET","POST"])
