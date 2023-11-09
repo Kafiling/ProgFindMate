@@ -85,13 +85,15 @@
                             <label for="country" class="block text-sm font-medium leading-6 text-gray-900">University</label>
                             <div class="mt-3">
                               <select name="university-select" id="university-select"  autocomplete="country-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                
                                 <option value="จุฬาลงกรณ์มหาวิทยาลัย">จุฬาลงกรณ์มหาวิทยาลัย</option>
-                                <option value="มหาวิทยาลัยธรรมศาสตร์">มหาวิทยาลัยธรรมศาสตร์</option>
+                                <option value="มหาวิทยาลัยเกษตรศาสตร์">มหาวิทยาลัยเกษตรศาสตร์</option>
                                 <option value="มหาวิทยาลัยมหิดล">มหาวิทยาลัยมหิดล</option>
                                 <option value="มหาวิทยาลัยศรีนครินทรวิโรฒ">มหาวิทยาลัยศรีนครินทรวิโรฒ</option>
-                                <option value="มหาวิทยาลัยเชียงใหม่">มหาวิทยาลัยเชียงใหม่</option>
+                                <option value="มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรีบางมด">มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี บางมด</option>
+                                <option value="มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ">มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ</option>
                               </select>
-                              <img class="w-full h-auto" id="university-image" src="" alt="University Image">
+                              <img class="w-full h-auto" id="university-image" src="https://www.chula.ac.th/wp-content/uploads/2018/03/home-chula-1440x900.jpg" alt="University Image">
                             
                             
                           </div>   
@@ -109,17 +111,23 @@
                                 จุฬาลงกรณ์มหาวิทยาลัย: {
                                       imageSrc: "https://www.chula.ac.th/wp-content/uploads/2018/03/home-chula-1440x900.jpg"
                                   },
+                                  มหาวิทยาลัยเกษตรศาสตร์:{
+                                    imageSrc: "https://www.prachachat.net/wp-content/uploads/2023/03/10.%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%A7%E0%B8%B4%E0%B8%97%E0%B8%A2%E0%B8%B2%E0%B8%A5%E0%B8%B1%E0%B8%A2%E0%B9%80%E0%B8%81%E0%B8%A9%E0%B8%95%E0%B8%A3%E0%B8%A8%E0%B8%B2%E0%B8%AA%E0%B8%95%E0%B8%A3%E0%B9%8C.jpg"},
+                                  
                                 มหาวิทยาลัยธรรมศาสตร์: {
                                       imageSrc: "https://tu.ac.th/uploads/attraction/_181009_0011.jpg"
                                   },
                                   มหาวิทยาลัยมหิดล: {
-                                      imageSrc: "https://mahidol.ac.th/temp/2022/11/MU-Alumni-BannerWeb-01-1.jpg"
+                                      imageSrc: "https://mahidol.ac.th/temp/2022/04/prine-mahidol.jpg"
                                   },
                                   มหาวิทยาลัยศรีนครินทรวิโรฒ: {
                                       imageSrc: "https://pbs.twimg.com/media/CmAcGr0UgAAheV-?format=jpg&name=4096x4096"
                                   },
-                                  มหาวิทยาลัยเชียงใหม่: {
-                                      imageSrc: "https://www.matichonweekly.com/wp-content/uploads/2020/05/%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%A7%E0%B8%B4%E0%B8%97%E0%B8%A2%E0%B8%B2%E0%B8%A5%E0%B8%B1%E0%B8%A2%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%882.jpg"
+                                  มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรีบางมด: {
+                                      imageSrc: "https://2.bp.blogspot.com/-WBdBFi1G1vM/UkKxT25n5xI/AAAAAAAAAgw/NuK13TTDstw/s1600/0b6a092885daa5d5aa79eb4f17bdca7e.jpg"
+                                  },
+                                  มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ:{
+                                    imageSrc:"https://s.isanook.com/ca/0/ud/279/1395453/37402462_2083999455171369_818.jpg"
                                   }
                                   
                               };
@@ -137,23 +145,12 @@
                         </div>
                         <div class="md:col-span-2">
                           <label for="city">Faculty</label>
-                          <input type="text" name="Faculty" id="Faculty" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="โรคหอบหืด" />
-                        </div>
-                        <!--
-                        <div class="sm:col-span-2">
-                          <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Faculty</label>
-                          <div class="mt-3">
-                            <select id="country" name="country" autocomplete="country-name" class="bh-10 border mt-1 rounded px-4 w-full bg-gray-50">
-                              <option>คณะเกษตรศาสตร์</option>
-                              <option>คณะครุศาสตร์อุตสาหกรรม</option>
-                              <option>คณะเทคโนโลยี</option>
-                              <option>คณะเทคโนโลยีสารสนเทศ</option>
-                              <option>คณะประมง</option>
+                          <select name="faculty-select" id="faculty-select"   class="h-10 border mt-1 rounded px-4 w-full ">
+                
                               <option>คณะวิทยาศาสตร์</option>
                               <option>คณะวิศวกรรมศาสตร์</option>
                               <option>คณะสิ่งแวดล้อม</option>
                               <option>คณะสัตวศาสตร์</option>
-                              <option>คณะกายภาพบำบัด</option>
                               <option>คณะการแพทย์แผนไทย</option>
                               <option>คณะทันตแพทยศาสตร์</option>
                               <option>คณะพยาบาลศาสตร์</option>
@@ -161,19 +158,6 @@
                               <option>คณะสหเวชศาสตร์</option>
                               <option>คณะสัตวแพทยศาสตร์</option>
                               <option>คณะสาธารณสุขศาสตร์</option>
-                              <option>คณะทัศนมาตรศาสตร์</option>
-                              <option>คณะเทคนิคการสัตวแพทย์</option>
-                              <option>คณะการแพทย์ทางเลือก</option>
-                              <option>คณะการกำหนดอาหารและโภชนาการ</option>
-                              <option>คณะพยาบาลทางเลือก</option>
-                              <option>คณะการแพทย์อนามัย</option>
-                              <option>คณะเวชศาสตร์เขตร้อน</option>
-                              <option>คณะการแพทย์แผนจีน</option>
-                              <option>คณะการแพทย์แผนไทยประยุกต์</option>
-                              <option>คณะแพทย์แผนปัจจุบัน</option>
-                              <option>คณะการแพทย์เฉพาะทาง</option>
-                              <option>คณะพยาบาลเฉพาะทาง</option>
-                              <option>คณะสาธารณสุขเฉพาะทาง</option>
                               <option>คณะนิติศาสตร์</option>
                               <option>คณะนิเทศศาสตร์</option>
                               <option>คณะบริหารธุรกิจและการบัญชี</option>
@@ -183,26 +167,37 @@
                               <option>คณะศึกษาศาสตร์</option>
                               <option>คณะเศรษฐศาสตร์</option>
                               <option>คณะสถาปัตยกรรมศาสตร์</option>
-                              <option>คณะสังคมศาสตร์</option>
-                              <option>คณะสังคมสงเคราะห์ศาสตร์</option>
-                              <option>คะน้าหมูกรอบพิเศษไข่ดาวไม่สุก</option>
-                            </select>
-                          </div>
+                          </select>
                         </div>
-                      -->
+                      
                         <div class="md:col-span-2">
                           <label for="city">Major</label>
-                          <input type="text" name="Major" id="Major" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="โรคหอบหืด" />
+                          <input type="text" name="major" id="major" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="วิทยาการคอมพิวเตอร์" required/>
                         </div>
                         <div class="md:col-span-1">
                           <label for="city">Year</label>
-                          <input type="text" name="Year" id="Year" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="โรคหอบหืด" />
+                          <select name="year" id="year"   class="h-10 border mt-1 rounded px-4 w-full ">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>สูงกว่าปี 6</option>
+                        </select>
                         </div>
                           </div>
                           <pre>
 
                           </pre>
-                          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+                          <div class="flex flex-row place-content-between ">
+                            <a class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded" href="/form">
+                              Back
+                            </a>
+                            
+                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"  type="submit">Submit</button>
+                          </div>
+                          
                         </div>
                         
                   

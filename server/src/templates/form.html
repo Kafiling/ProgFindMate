@@ -20,8 +20,8 @@
               1
           </span>
           <span>
-              <h3 class="font-medium ">Login</h3>
-              <p class="text-sm">Step details here</p>
+              <h3 class="font-medium ">Register</h3>
+              <p class="text-sm">ข้อมูลพื้นฐาน</p>
           </span>
       </li>
       <li class="flex items-center text-gray-500  space-x-2.5">
@@ -29,8 +29,8 @@
               2
           </span>
           <span>
-              <h3 class="font-medium ">Edit profile</h3>
-              <p class="text-sm">Step details here</p>
+              <h3 class="font-medium ">Academic life</h3>
+              <p class="text-sm">ข้อมูลการศึกษา</p>
           </span>
       </li>
       <li class="flex items-center text-gray-500  space-x-2.5">
@@ -38,8 +38,8 @@
               3
           </span>
           <span>
-              <h3 class="font-medium ">Almost Finish</h3>
-              <p class="text-sm">Step details here</p>
+              <h3 class="font-medium ">Lifestyle and Personality</h3>
+              <p class="text-sm">ข้อมูลไลฟ์สไตล์และบุคลิก</p>
           </span>
       </li>
       <li class="flex items-center text-gray-500  space-x-2.5">
@@ -47,8 +47,8 @@
             4
         </span>
         <span>
-            <h3 class="font-medium ">Finish</h3>
-            <p class="text-sm">Step details here</p>
+            <h3 class="font-medium ">Find your dream dorm</h3>
+            <p class="text-sm">หาหอพักให้กับคุณ!</p>
         </span>
     </li>
   </ol>
@@ -74,10 +74,10 @@
 						<div class="flex items-center py-6">
 							<div class="w-40 h-40 mr-4 flex-none rounded-xl border overflow-hidden">
                 
-								<img class="w-40 h-40 mr-4 object-cover" id="UserAvatar" src="https://as1.ftcdn.net/v2/jpg/01/68/80/20/1000_F_168802075_Il6LeUG0NCK4JOELmkC7Ki81g0CiLpxU.jpg" alt="Upload Avatar">
+								<img class="w-40 h-40 mr-4 object-cover" id="UserAvatar" src="https://firebasestorage.googleapis.com/v0/b/use-dormee.appspot.com/o/WebFile%2FSelectYourAvatra.jpg?alt=media&token=0a015c00-e32d-4098-a4e4-f6cd20fe967d" alt="Upload Avatar">
                 </div>
 								<label class="cursor-pointer ">
-                  <span class="focus:outline-none text-white text-sm py-2 px-4 rounded-full bg-green-400 hover:bg-green-500 hover:shadow-lg">Browse</span>
+                  <span class="focus:outline-none text-white text-sm py-2 px-4 rounded-full bg-green-400 hover:bg-green-500 hover:shadow-lg">Add Picture</span>
                   <input type="file" name="userImg" id="userImg" class="hidden" accept="image/*"  required>
                 </label>
 
@@ -99,11 +99,23 @@
 
           <div class="lg:col-span-4">
             <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
-              <div class="md:col-span-5">
+              <div class="md:col-span-3">
                 
                 <label for="full_name" >Display Name</label>
                 
                 <input type="text" name="displayName" id="displayName" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="SomeCoolName here✨"  required/>
+              </div>
+
+              <div class="md:col-span-2 ">
+                <label for="country">เพศ</label>
+                <div class="h-10 flex border rounded items-center mt-1 ">
+                  <select name = "gender" id="gender" class="w-full h-full bg-gray-50 border-gray-200" required >
+                    <option>เพศชาย </option>
+                    <option>เพศหญิง </option>
+                    <option>non-binary</option>
+                    <option>ไม่ขอระบุ </option>
+                  </select>         
+                </div>
               </div>
 
               
@@ -123,9 +135,9 @@
                     <option>พุทธศาสนา </option>
                     <option>ศาสนาคริสต์ </option>
                     <option>อิสลาม  </option>
-                    <option>พราหมณ์</option>
-                    <option>ศาสนาฮินดู </option>
+                    <option>พราหมณ์-ฮินดู </option>
                     <option>ยิว </option>
+                    <option>ไม่นับถือศาสนา</option>
                     <option>อื่นๆ </option>
                   </select>         
                 </div>

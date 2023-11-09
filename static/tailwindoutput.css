@@ -1004,6 +1004,11 @@ video {
   background-color: rgb(74 222 128 / var(--tw-bg-opacity));
 }
 
+.bg-pink-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 168 212 / var(--tw-bg-opacity));
+}
+
 .bg-primary {
   --tw-bg-opacity: 1;
   background-color: rgb(255 145 187 / var(--tw-bg-opacity));
@@ -1024,9 +1029,9 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-pink-300 {
+.bg-gray-400 {
   --tw-bg-opacity: 1;
-  background-color: rgb(249 168 212 / var(--tw-bg-opacity));
+  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
 }
 
 .from-blue-500 {
@@ -1737,6 +1742,11 @@ div[slider] > input[type=range]::-ms-tooltip {
   background-color: rgb(240 240 245 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-gray-500:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(107 114 128 / var(--tw-bg-opacity));
+}
+
 .hover\:bg-gradient-to-r:hover {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
@@ -1793,14 +1803,14 @@ div[slider] > input[type=range]::-ms-tooltip {
     border-color: rgb(156 163 175 / var(--tw-border-opacity));
   }
 
-  .dark\:text-blue-800 {
-    --tw-text-opacity: 1;
-    color: rgb(30 64 175 / var(--tw-text-opacity));
-  }
-
   .dark\:text-blue-500 {
     --tw-text-opacity: 1;
     color: rgb(59 130 246 / var(--tw-text-opacity));
+  }
+
+  .dark\:text-blue-800 {
+    --tw-text-opacity: 1;
+    color: rgb(30 64 175 / var(--tw-text-opacity));
   }
 
   .dark\:text-gray-400 {
@@ -1874,12 +1884,12 @@ div[slider] > input[type=range]::-ms-tooltip {
     grid-column: span 3 / span 3;
   }
 
-  .md\:col-span-5 {
-    grid-column: span 5 / span 5;
-  }
-
   .md\:col-span-4 {
     grid-column: span 4 / span 4;
+  }
+
+  .md\:col-span-5 {
+    grid-column: span 5 / span 5;
   }
 
   .md\:flex {
@@ -1898,16 +1908,16 @@ div[slider] > input[type=range]::-ms-tooltip {
     width: 4rem;
   }
 
+  .md\:w-48 {
+    width: 12rem;
+  }
+
   .md\:w-\[35vw\] {
     width: 35vw;
   }
 
   .md\:w-\[4\.5rem\] {
     width: 4.5rem;
-  }
-
-  .md\:w-48 {
-    width: 12rem;
   }
 
   .md\:grid-cols-5 {
@@ -1948,10 +1958,6 @@ div[slider] > input[type=range]::-ms-tooltip {
 
   .lg\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .lg\:grid-cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .lg\:flex-row {

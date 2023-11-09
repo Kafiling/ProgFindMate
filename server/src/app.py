@@ -71,10 +71,9 @@ def form():
     template = render_template('form.html')
     if request.method == "POST":
         # getting input in HTML form
-
         data = {
-            #TODO upload image is not working!!
             'displayName' : request.form.get("displayName") ,
+            'gender' : request.form.get("gender"),
             'bDay' : request.form.get("bDay") ,
             'religion' : request.form.get("religion") ,
             'contactNote' : request.form.get("contactNote") ,
@@ -92,11 +91,20 @@ def form():
 @app.route('/form2',methods = ["GET","POST"])
 @login_required
 def form2():
-    university = 'Waiting respond'
-    if request.method == "POST":  
-        university = request.form.get("university")
-        
-    template = render_template('form2.html',university = university)
+    template = render_template('form2.html')
+    if request.method == "POST":
+        # getting input in HTML form
+        data = {
+            'university' : request.form.get("university-select") ,
+            'faculty' : request.form.get("faculty-select"),
+            'major' : request.form.get("major") ,
+            'acedemicYear' : request.form.get("year") 
+            }
+        user = session['user'] 
+        fsdb.collection('User').document(user['email']).update(data,token=user['idToken'])
+        if data['university'] != None:
+            return redirect('/form3')   
+    
     return runWithCacheControl(template)
 
 @app.route('/form3')
