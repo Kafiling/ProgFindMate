@@ -88,30 +88,71 @@
                               <span thumb style="left:30%;"></span>
                               <span thumb style="left:60%;"></span>
                               <div sign style="left:30%;">
-                                <span id="value">30</span>
+                                <span id="value">0:30</span>
                               </div>
                               <div sign style="left:60%;">
-                                <span id="value">60</span>
+                                <span id="value">5:30</span>
                               </div>
                             </div>
-                            <input type="range" tabindex="0" value="30" max="100" min="0" step="3.125" oninput="
+                            <input type="range" tabindex="0" value="30" max="100" min="0" step="1" oninput="
                             this.value=Math.min(this.value,this.parentNode.childNodes[5].value-1);
                             var value=(100/(parseInt(this.max)-parseInt(this.min)))*parseInt(this.value)-(100/(parseInt(this.max)-parseInt(this.min)))*parseInt(this.min);
-                            
+                            function convertTime(inputValue) {
+                              //this function converts values(0-100) to time (24hr format) 
+                              //which start from minTime(20:00) step 30 min every 3.125(that 32 step till 100) upto maxTime(12:00 next day) (20+18)
+                              //This function wirte by k4filing so bug may occur *That all,Good Luck* 
+                              let minTime = 20.00
+                              let maxtime = 38.00
+                              let inputTime = (parseInt((parseInt(inputValue)) /3.125))/2
+                              let numberTime = inputTime + minTime
+                              if (numberTime >= 24){
+                                numberTime = inputTime + minTime - 24
+                              }
+                              let hour = (numberTime).toString()
+                              let isHlafHour = '00'
+                              if (hour % 1 == 0.5){
+                                hour = (numberTime - 0.5).toString()
+                                isHlafHour = '30'
+                              }
+                              let returnTime = hour + ':' + isHlafHour
+
+                              return returnTime
+                            }
                             var children = this.parentNode.childNodes[1].childNodes;
                             children[1].style.width=value+'%';
                             children[5].style.left=value+'%';
                             children[7].style.left=value+'%';children[11].style.left=value+'%';
-                            children[11].childNodes[1].innerHTML=this.value;" />
+                            children[11].childNodes[1].innerHTML=convertTime(this.value);" />
                           
-                            <input type="range" tabindex="0" value="60" max="100" min="0" step="3.125" oninput="
+                            <input type="range" tabindex="0" value="60" max="100" min="0" step="1" oninput="
                             this.value=Math.max(this.value,this.parentNode.childNodes[3].value-(-1));
                             var value=(100/(parseInt(this.max)-parseInt(this.min)))*parseInt(this.value)-(100/(parseInt(this.max)-parseInt(this.min)))*parseInt(this.min);
+                            function convertTime(inputValue) {
+                              //this function converts values(0-100) to time (24hr format) 
+                              //which start from minTime(20:00) step 30 min every 3.125(that 32 step till 100) upto maxTime(12:00 next day) (20+18)
+                              //This function wirte by k4filing so bug may occur *That all,Good Luck* 
+                              let minTime = 20.00
+                              let maxtime = 38.00
+                              let inputTime = (parseInt((parseInt(inputValue)) /3.125))/2
+                              let numberTime = inputTime + minTime
+                              if (numberTime >= 24){
+                                numberTime = inputTime + minTime - 24
+                              }
+                              let hour = (numberTime).toString()
+                              let isHlafHour = '00'
+                              if (hour % 1 == 0.5){
+                                hour = (numberTime - 0.5).toString()
+                                isHlafHour = '30'
+                              }
+                              let returnTime = hour + ':' + isHlafHour
+
+                              return returnTime
+                            }
                             var children = this.parentNode.childNodes[1].childNodes;
                             children[3].style.width=(100-value)+'%';
                             children[5].style.right=(100-value)+'%';
                             children[9].style.left=value+'%';children[13].style.left=value+'%';
-                            children[13].childNodes[1].innerHTML=this.value;" />
+                            children[13].childNodes[1].innerHTML=convertTime(this.value);" />
                                
                         </div>
                         </div>

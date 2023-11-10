@@ -150,7 +150,7 @@ div[slider] > input[type=range]::-ms-tooltip {
   z-index:3;
   background-color: rgb(244, 168, 238);
   color: #fff;
-  width: 28px;
+  width: 42px;
   height: 28px;
   border-radius: 28px;
   -webkit-border-radius: 28px;
