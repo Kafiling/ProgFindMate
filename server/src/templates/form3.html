@@ -16,51 +16,47 @@
   <div class="min-h-screen flex flex-col place-items-center place-content-between py-8">
     <!--detailed stepper-->
     <ol class="items-center space-y-4 sm:flex sm:space-x-8 sm:space-y-0">
-      <li class="flex items-center text-blue-600 dark:text-blue-500 space-x-2.5">
-          <span class="flex items-center justify-center w-8 h-8 border border-blue-600 rounded-full shrink-0 dark:border-blue-500">
+      <li class="flex items-center text-gray-500  space-x-2.5">
+          <span class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 ">
               1
           </span>
           <span>
-              <h3 class="font-medium ">Login</h3>
-              <p class="text-sm">Step details here</p>
+              <h3 class="font-medium ">Register</h3>
+              <p class="text-sm">ข้อมูลพื้นฐาน</p>
           </span>
       </li>
-      <li class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
-          <span class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400" >
+      <li class="flex items-center text-gray-500  space-x-2.5">
+          <span class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 " >
               2
           </span>
           <span>
-              <h3 class="font-medium ">Edit profile</h3>
-              <p class="text-sm">Step details here</p>
+              <h3 class="font-medium ">Academic life</h3>
+              <p class="text-sm">ข้อมูลการศึกษา</p>
           </span>
       </li>
-      <li class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
-          <span class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+      <li class="flex items-center text-blue-600  space-x-2.5">
+          <span class="flex items-center justify-center w-8 h-8 border border-blue-600 rounded-full shrink-0 ">
               3
           </span>
           <span>
-              <h3 class="font-medium ">Almost Finish</h3>
-              <p class="text-sm">Step details here</p>
+              <h3 class="font-medium ">Lifestyle and Personality</h3>
+              <p class="text-sm">ข้อมูลไลฟ์สไตล์และบุคลิก</p>
           </span>
       </li>
-      <li class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5">
-        <span class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+      <li class="flex items-center text-gray-500  space-x-2.5">
+        <span class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 ">
             4
         </span>
         <span>
-            <h3 class="font-medium ">Finish</h3>
-            <p class="text-sm">Step details here</p>
+            <h3 class="font-medium ">Find your dream dorm</h3>
+            <p class="text-sm">หาหอพักให้กับคุณ!</p>
         </span>
     </li>
   </ol>
 
-    <!--detailed stepper-->
-<pre> 
 
 
-</pre>
-
-
+  <form class="w-full h-full" method="post" enctype="multipart/form-data">
   <div class="container max-w-screen-lg mx-auto">
     <div>
       <h2 class="font-semibold text-xl text-gray-600">Resgister Form</h2>
@@ -88,10 +84,10 @@
                               <span thumb style="left:30%;"></span>
                               <span thumb style="left:60%;"></span>
                               <div sign style="left:30%;">
-                                <span id="value">0:30</span>
+                                <span id="sleepTimeMin">0:30</span>
                               </div>
                               <div sign style="left:60%;">
-                                <span id="value">5:30</span>
+                                <span id="sleepTimeMax">5:30</span>
                               </div>
                             </div>
                             <input type="range" tabindex="0" value="30" max="100" min="0" step="1" oninput="
@@ -122,7 +118,9 @@
                             children[1].style.width=value+'%';
                             children[5].style.left=value+'%';
                             children[7].style.left=value+'%';children[11].style.left=value+'%';
-                            children[11].childNodes[1].innerHTML=convertTime(this.value);" />
+                            children[11].childNodes[1].innerHTML=convertTime(this.value);
+                            " 
+                            />
                           
                             <input type="range" tabindex="0" value="60" max="100" min="0" step="1" oninput="
                             this.value=Math.max(this.value,this.parentNode.childNodes[3].value-(-1));
@@ -188,10 +186,24 @@
                                 <label for="city">อื่นๆ: </label>
                                 <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
                               </div>
+
+                              <div>
+                                <input type="hidden" name="sleepTimeMinForm" id="sleepTimeMinForm">
+                                <input type="hidden" name="sleepTimeMaxForm" id="sleepTimeMaxForm">
+                              </div>
                               <pre>
 
                               </pre>
-                              <button class="bg-pink-300 hover:bg-prink-300 text-white font-bold py-2 px-4 rounded">Submit</button>
+                              <div class="flex flex-row place-content-between ">
+                                <a class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded" href="/form2">
+                                  Back
+                                </a>
+                                
+                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"  type="submit" onclick="
+                                 document.getElementById('sleepTimeMinForm').value=document.getElementById('sleepTimeMin').innerHTML 
+                                 document.getElementById('sleepTimeMaxForm').value=document.getElementById('sleepTimeMax').innerHTML 
+                                 ">Submit</button>
+                              </div>
                             
                             </div>
                             </div>                        
@@ -202,23 +214,10 @@
                         
                   
                 </div>
+              </form>
               </div>
               
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-              <!--
-              <div class="sm:col-span-3">
-                <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Faculty</label>
-                <div class="mt-2">
-                  <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                </div>
-              </div>
-            -->
+              
                
         
 </body>

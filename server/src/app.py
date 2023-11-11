@@ -107,7 +107,7 @@ def form2():
     
     return runWithCacheControl(template)
 
-@app.route('/form3')
+@app.route('/form3',methods = ["GET","POST"])
 @login_required
 def form3():
     template = render_template('form3.html')
