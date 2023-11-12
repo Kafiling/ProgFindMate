@@ -110,6 +110,18 @@ def form2():
 @app.route('/form3',methods = ["GET","POST"])
 @login_required
 def form3():
+    if request.method == "POST":
+        sleepTimeMin = request.form.get("sleepTimeMinForm")
+        sleepTimeMax = request.form.get("sleepTimeMaxForm")
+        isSleepWithLightOn = request.form.get("isSleepWithLightOn")
+        if isSleepWithLightOn =='true':
+            isSleepWithLightOn = True
+        else:
+            isSleepWithLightOn = False
+        userNote = request.form.get("userNote")
+        if userNote == '':
+            userNote = 'ผู้ใช้ท่านนี้ไม่ได้ระบุโน๊ต'
+        print(request.form.getlist("personalityForm"))
     template = render_template('form3.html')
     return runWithCacheControl(template)
 

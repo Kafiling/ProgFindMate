@@ -13,7 +13,7 @@
 </head>
 
 <body class="w-screen min-h-screen bg-softWhite px-[7.5%] md:px-[20%] ">
-  <div class="min-h-screen flex flex-col place-items-center place-content-between py-8">
+  <div class="min-h-screen flex flex-col place-items-center py-8 gap-y-8">
     <!--detailed stepper-->
     <ol class="items-center space-y-4 sm:flex sm:space-x-8 sm:space-y-0">
       <li class="flex items-center text-gray-500  space-x-2.5">
@@ -56,25 +56,22 @@
 
 
 
-  <form class="w-full h-full" method="post" enctype="multipart/form-data">
+  <form class="w-full h-full" method="post" name="form3" enctype="multipart/form-data">
   <div class="container max-w-screen-lg mx-auto">
     <div>
       <h2 class="font-semibold text-xl text-gray-600">Resgister Form</h2>
-      <p class="text-gray-500 mb-6">กรุณากรอกข้อมูลให้ครบ.</p>
+      <p class="text-gray-500 mb-6">กรุณากรอกข้อมูลให้ครบ</p>
 
       <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
         <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
           <div class="text-gray-600">
-            <p class="font-medium text-lg">Personal Details</p>
-            <p>กรุณากรอกข้อมูลให้ครบทุก Form.</p>
-            <!--Upload Avartar-->
-            
-
+            <p class="font-medium text-lg">Lifestyle and Personality</p>
+            <p>กรุณากรอกข้อมูลให้ครบทุกช่อง</p>
           </div>
           <!--Avartar-->
           <div class="md:col-span-5">
           
-                        <div class="md:col-span-4">
+                        <div class="md:col-span-5">
                           <label for="city">เวลานอน</label>
                           <div slider id="slider-distance">
                             <div>
@@ -156,35 +153,34 @@
                         </div>
                         
                         </div>
-
-                          <div class="md:col-span-0">
+                        <pre></pre>
+                        <div class="md:col-span-5 flex flex-row place-content-center gap-x-2">
+                          <span class="text-base font-medium text-gray-900 " id="sleepWithLightOff">นอนปิดไฟ 🌙</span>
+                          <label class="relative inline-flex items-center  cursor-pointer">
+                            <input type="checkbox" id="isSleepWithLightOn" name="isSleepWithLightOn" value="true" class="sr-only peer" onclick="var isSleepWithLightOn = document.getElementById('isSleepWithLightOn').checked;
+                            if(isSleepWithLightOn){
+                              document.getElementById('sleepWithLightOff').style.opacity = '0.4'
+                              document.getElementById('sleepWithLightOn').style.opacity = '1'
+                            }
+                            else{
+                              document.getElementById('sleepWithLightOff').style.opacity = '1'
+                              document.getElementById('sleepWithLightOn').style.opacity = '0.4'
+                            }">
+                            <div class="w-11 h-6 bg-gray-200 rounded-full peer  peer-focus:ring-4 peer-focus:ring-[#F4A8EE]  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-[#F4A8EE]"></div>
+                          </label>
+          
+                          <span class="text-base font-medium text-gray-900 opacity-40" id="sleepWithLightOn">💡 นอนเปิดไฟ </span>
+                          <script>
                             
+
+                          </script>
                         </div>
-                        <div class="md:col-span-1">
-                          <p>นอนเปิดไฟ</p>
-                          <label><input type="checkbox" checked /></label>
-                      </div>
-                      <div class="md:col-span-1">
-                        <p>นอนปิดไฟ</p>
-                        <label><input type="checkbox" checked /></label>
-                    </div>
+                          
                         </div>
-                      
-                      
-                            
-
-                            
-                            <div class="md:col-span-4">
+                            <div class="md:col-span-5">
                               <div class="md:col-span-2">
-                                <label for="city">หมายเหตุ: </label>
-                                <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="แพ้ขนหมา" />
-                              </div>
-                              <pre>
-
-                              </pre>
-                              <div class="md:col-span-2">
-                                <label for="city">อื่นๆ: </label>
-                                <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                                <label for="city">หมายเหตุ/สิ่งที่อยากให้เมทรู้: </label>
+                                <input type="text" name="userNote" id="userNote"  class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="แพ้ขนหมา" />
                               </div>
 
                               <div>
@@ -194,14 +190,635 @@
                               <pre>
 
                               </pre>
+                              
+                              <div class="md:col-span-5" >
+                                <pre>
+                                    
+                                </pre>
+                              <h1 class="text-lg" >🛈 ข้อมูลพื้นฐาน</h1>
+                              <p class="text-sm">เลือกไลฟ์สไตล์ที่เป็นคุณ เราจะใช้ข้อมูลนี้ในการหาเมทที่เข้ากับคุณ!</p>
+                              <pre>
+                    
+                              </pre>
+                              <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" name="personalityForm"  value="กำลังศึกษามหาวิทยาลัย" class="sr-only peer">
+                                <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                    <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">
+                                        📖กำลังศึกษามหาวิทยาลัย
+                                    </span>
+                                </div>
+                            </label>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" name="personalityForm" value="ติดตามทุกสถานการณ์" class="sr-only peer">
+                                <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                    <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">
+                                        📱ติดตามทุกสถานการณ์
+                                    </span>
+                                </div>
+                            </label>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox"  name="personalityForm" value="รักเพื่อน" class="sr-only peer">
+                                <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                    <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">
+                                        🤌🏻รักเพื่อน
+                                    </span>
+                                </div>
+                            </label>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" name="personalityForm" value="เจ้าชายไอที" class="sr-only peer">
+                                <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                    <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">
+                                      💻เจ้าชายไอที
+                                    </span>
+                                </div>
+                            </label>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" name="personalityForm" value="กีฬาเป็นยาวิเศษ" class="sr-only peer">
+                                <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                    <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">
+                                        💪🏻กีฬาเป็นยาวิเศษ
+                                    </span>
+                                </div>
+                            </label>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                              <input type="checkbox" name="personalityForm" value="เข้าหาง่าย/เป็นมิตร" class="sr-only peer">
+                              <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                  <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">
+                                      👬เข้าหาง่าย/เป็นมิตร
+                                  </span>
+                              </div>
+                          </label>
+                          <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" name="personalityForm"  value="อยู่หอทั้งวัน" class="sr-only peer">
+                            <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">
+                                    👬อยู่หอทั้งวัน
+                                </span>
+                            </div>
+                        </label>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" name="personalityForm" value="รวมกันมันส์กว่า!"  class="sr-only peer">
+                                <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                    <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">
+                                        👀รวมกันมันส์กว่า!
+                                    </span>
+                                </div>
+                            </label>
+                            </div>
+                            <div class="md:col-span-5" >
+                                <pre>
+                                    
+                                </pre>
+                              <h1 class="text-lg" >🦋 ผีเสื้อสังคม</h1>
+                              <div class="md:col-span-5" >
+                                <pre>
+                                    
+                                </pre>
+                              <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" name="personalityForm" value="มีโรงหนังเป็นบ้านหลังที่สอง" class="sr-only peer">
+                                <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                    <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">           
+                                      🎞️ มีโรงหนังเป็นบ้านหลังที่สอง 
+                                    </span>
+                                </div>
+                            </label>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" name="personalityForm" value="เดินห้างฆ่าเวลา" class="sr-only peer">
+                                <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                    <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">           
+                                    🛍️ เดินห้างฆ่าเวลา
+                                    </span>
+                                </div>
+                            </label>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" name="personalityForm" value="หมูกระทะ lover" class="sr-only peer">
+                                <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                    <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">           
+                                      🐷 หมูกระทะ lover
+                                    </span>
+                                </div>
+                            </label>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                              <input type="checkbox" name="personalityForm" value="มี cafe เป็นที่พักใจ" class="sr-only peer">
+                              <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                  <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">           
+                                    🍵 มี cafe เป็นที่พักใจ
+                                    
+                                  </span>
+                              </div>
+                            </label>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                              <input type="checkbox" name="personalityForm" value="Event อย่าได้พลาด" class="sr-only peer">
+                              <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                  <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">           
+                                    🗓️ Event อย่าได้พลาด
+                                  </span>
+                              </div>
+                            </label>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                              <input type="checkbox" name="personalityForm" value="ดาวไอจี/ดาวต๊อกต๊อก" class="sr-only peer">
+                              <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                  <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">           
+                                    📱 ดาวไอจี/ดาวต๊อกต๊อก
+
+                                  </span>
+                              </div>
+                            </label>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                              <input type="checkbox" name="personalityForm" value="introvert ฮ้าฟฟู่ววว" class="sr-only peer">
+                              <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                  <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">           
+                                    😎 introvert ฮ้าฟฟู่ววว
+                                  </span>
+                              </div>
+                            </label>       
+                             </div>
+                            <div class="md:col-span-5" >
+                                <pre>
+                                    
+                                </pre>
+                              <h1 class="text-lg" >👩‍🍳 เรื่องกินเรื่องใหญ่</h1>
+                                <pre>
+                                    
+                                </pre>
+                                <div></div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" name="personalityForm" value="ทำอาหารกินเอง" class="sr-only peer">
+                                    <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                        <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                            🍽️ ทำอาหารกินเอง
+                                        </span>
+                                    </div>
+                                </label>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" name="personalityForm" value="สายไม่ทำ รอกินอย่างเดียว" class="sr-only peer">
+                                    <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                        <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                            🤪 สายไม่ทำ รอกินอย่างเดียว
+                                        </span>
+                                    </div>
+                                </label>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" name="personalityForm" value="สายกินข้าวดึก" class="sr-only peer">
+                                    <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                        <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                            🌙 สายกินข้าวดึก
+                                        </span>
+                                    </div>
+                                </label>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                  <input type="checkbox" name="personalityForm" value="กินคลีน รักสุขภาพ" class="sr-only peer">
+                                  <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                      <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                        🥬 กินคลีน รักสุขภาพ
+                                      </span>
+                                  </div>
+                              </label>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" name="personalityForm" value="เจ้าหญิงขนมหวาน" class="sr-only peer">
+                                    <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                        <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                          🍫 เจ้าหญิงขนมหวาน
+                                        </span>
+                                    </div>
+                                </label>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" name="personalityForm" value="สายกินเหล้า" class="sr-only peer">
+                                    <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                        <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                          🍺 สายกินเหล้า
+                                        </span>
+                                    </div>
+                                </label>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                  <input type="checkbox" name="personalityForm" value="สายยังไงก็ได้ อิ่มเหมือนกัน" class="sr-only peer">
+                                  <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                      <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                        👌 สายยังไงก็ได้ อิ่มเหมือนกัน
+                                      </span>
+                                  </div>
+                              </label>
+                                </div>
+                                    <pre>
+
+                                    </pre>
+                                  <h1 class="text-lg" >🎨 หัวศิลป์เป็นเลิศ
+                                </h1>
+                                  <div class="md:col-span-5" >
+                                    <pre>
+                                        
+                                    </pre>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" name="personalityForm" value="จิตรกรน้อย" class="sr-only peer">
+                                        <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                            <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                              🖌️ จิตรกรน้อย
+                                                
+                                            </span>
+                                        </div>
+                                    </label>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" name="personalityForm" value="ดนตรีนั้นคือชีวิต" class="sr-only peer">
+                                        <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                            <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                              🎼 ดนตรีนั้นคือชีวิต
+                                            </span>
+                                        </div>
+                                    </label>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" name="personalityForm" value="ดูหนัง/ซีรี่ย์" class="sr-only peer">
+                                        <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                            <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                              📽️ ดูหนัง/ซีรี่ย์   
+                                            </span>
+                                        </div>
+                                    </label>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" name="personalityForm" value="ดูอนิเมะ" class="sr-only peer">
+                                        <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                            <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                              🔥 ดูอนิเมะ 
+                                            </span>
+                                        </div>
+                                    </label>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                      <input type="checkbox" name="personalityForm" value="อ่าน Manga" class="sr-only peer">
+                                      <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                          <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                            📖 อ่าน Manga
+                                          </span>
+                                      </div>
+                                  </label>
+                                  <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" name="personalityForm" value="เจ้าแม่แฟชั่น" class="sr-only peer">
+                                    <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                        <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                          👗 เจ้าแม่แฟชั่น
+                                        </span>
+                                    </div>
+                                </label>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" name="personalityForm" value="เจ้าชายน้ำหอม" class="sr-only peer">
+                                        <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                            <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                              🥀 เจ้าชายน้ำหอม
+                                            </span>
+                                        </div>
+                                    </label>
+                                    </div>
+                                        <pre>
+                                            
+                                        </pre>
+                                      <h1 class="text-lg" >🎓 รักการเรียน
+                                    </h1>
+                                      <div class="md:col-span-5" >
+                                        <pre>
+                                            
+                                        </pre>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" name="personalityForm" value="นิสิตตัวอย่าง" class="sr-only peer">
+                                            <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                                <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                                  🎓 นิสิตตัวอย่าง
+                                                </span>
+                                            </div>
+                                        </label>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                          <input type="checkbox" name="personalityForm" value="สายเก็บ A" class="sr-only peer">
+                                          <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                              <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                                👨‍🎓 สายเก็บ A
+                                                
+                                                  
+                                              </span>
+                                          </div>
+                                      </label>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" name="personalityForm" value="ชาวหนี F" class="sr-only peer">
+                                            <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                                <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                                    🚫 ชาวหนี F
+                                                    
+                                                </span>
+                                            </div>
+                                        </label>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                          <input type="checkbox" name="personalityForm" value="เข้าเดือนจริงจัง" class="sr-only peer">
+                                          <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                              <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                                 📅 เข้าเดือนจริงจัง   
+                                              </span>
+                                          </div>
+                                        </label>
+                                      <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" name="personalityForm" value="ลูกรักอาจารย์" class="sr-only peer">
+                                        <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                            <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                                💖 ลูกรักอาจารย์
+                                                
+                                            </span>
+                                        </div>
+                                    </label>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                      <input type="checkbox" name="personalityForm" value="นอนหอกลาง" class="sr-only peer">
+                                      <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                          <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                            😴 นอนหอกลาง
+                                              
+                                              
+                                          </span>
+                                      </div>
+                                    </label>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                      <input type="checkbox" name="personalityForm" value="เช้าแค่ไหนก็จะไปเรียน" class="sr-only peer">
+                                      <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                          <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                            🤖 เช้าแค่ไหนก็จะไปเรียน
+                                              
+                                              
+                                          </span>
+                                      </div>
+                                    </label>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                      <input type="checkbox" name="personalityForm" value="เข้าห้องสอบทราบแค่รหัสนิสิต" class="sr-only peer">
+                                      <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                          <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                            😱 เข้าห้องสอบทราบแค่รหัสนิสิต 
+                                          </span>
+                                      </div>
+                                    </label>
+                                        </div>
+                                        <pre>
+                                                
+                                        </pre>
+                                          <h1 class="text-lg" >🛌 การใช้ชีวิตในหอ
+                                        </h1>
+                                          <div class="md:col-span-5" >
+                                            <pre>
+                                                
+                                            </pre>
+                                            <label class="relative inline-flex items-center cursor-pointer">
+                                              <input type="checkbox" name="personalityForm" value="ให้เมทยืมของได้" class="sr-only peer">
+                                              <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                                  <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                                    👌 ให้เมทยืมของได้
+                                                      
+                                                  </span>
+                                              </div>
+                                          </label>
+                                          <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" name="personalityForm" value="อย่ามายุ่งกับของชั้นนะ" class="sr-only peer">
+                                            <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                                <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                                  🙅‍♂️ อย่ามายุ่งกับของชั้นนะ 
+                                                </span>
+                                            </div>
+                                        </label>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                          <input type="checkbox" name="personalityForm" value="Early bird (ชอบการตื่นเช้า)" class="sr-only peer">
+                                          <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                              <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                                🐦 Early bird (ชอบการตื่นเช้า)
+                                              </span>
+                                          </div>
+                                      </label>
+                                      <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" name="personalityForm" value="Night Owl (ชอบการนอนดึก)" class="sr-only peer">
+                                        <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                            <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                                🦉 Night Owl (ชอบการนอนดึก)
+                                            </span>
+                                        </div>
+                                    </label>
+                                            <label class="relative inline-flex items-center cursor-pointer">
+                                              <input type="checkbox" name="personalityForm" value="รักความสะอาด" class="sr-only peer">
+                                              <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                                  <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                                    🧹 รักความสะอาด 
+                                                      
+                                                  </span>
+                                              </div>
+                                          </label>
+                                          <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" name="personalityForm" value="จัดของเป็นระเบียบ" class="sr-only peer">
+                                            <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                                <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                                  ✨ จัดของเป็นระเบียบ 
+                                                    
+                                                </span>
+                                            </div>
+                                        </label>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                          <input type="checkbox" name="personalityForm" value="ทำความสะอาดประจำ" class="sr-only peer">
+                                          <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                              <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                                  🥇 ทำความสะอาดประจำ
+                                                  
+                                              </span>
+                                          </div>
+                                      </label>
+                                            <label class="relative inline-flex items-center cursor-pointer">
+                                              <input type="checkbox" name="personalityForm" value="ทำบ้างเป็นบางที" class="sr-only peer">
+                                              <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                                  <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                                    🌝 ทำบ้างเป็นบางที
+                                                      
+                                                  </span>
+                                              </div>
+                                          </label>
+                                          <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" name="personalityForm" value="ไม่ค่อยได้ทำความสะอาด" class="sr-only peer">
+                                            <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                                <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                                  🌚 ไม่ค่อยได้ทำความสะอาด
+                                                    
+                                                </span>
+                                            </div>
+                                        </label>
+                                            <label class="relative inline-flex items-center cursor-pointer">
+                                                <input type="checkbox" name="personalityForm" value="จ้างแม่บ้านทำความสะอาด" class="sr-only peer">
+                                                <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                                    <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                                      💸 จ้างแม่บ้านทำความสะอาด 
+                                                        
+                                                    </span>
+                                                </div>
+                                            </label>
+                                            <label class="relative inline-flex items-center cursor-pointer">
+                                              <input type="checkbox" name="personalityForm" value="เปิดแอร์ทั้งวัน" class="sr-only peer">
+                                              <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                                  <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                                    🧊 เปิดแอร์ทั้งวัน
+                                                      
+                                                  </span>
+                                              </div>
+                                          </label>
+                                          <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" name="personalityForm" value="เปิดแอร์ตอนนอน" class="sr-only peer">
+                                            <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                                <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                                  🌊 เปิดแอร์ตอนนอน
+                                                    
+                                                </span>
+                                            </div>
+                                        </label>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                          <input type="checkbox" name="personalityForm" value="ไม่ค่อยเปิดแอร์" class="sr-only peer">
+                                          <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                              <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                                🏝️ ไม่ค่อยเปิดแอร์
+                                                  
+                                              </span>
+                                          </div>
+                                      </label>
+                                            <label class="relative inline-flex items-center cursor-pointer">
+                                              <input type="checkbox" name="personalityForm" value="Grab บัตรทอง (สั่ง food delivery บ่อย)" class="sr-only peer">
+                                              <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                                  <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                                    🛵 Grab บัตรทอง (สั่ง food delivery บ่อย) 
+                                                      
+                                                  </span>
+                                              </div>
+                                          </label>
+                                            <label class="relative inline-flex items-center cursor-pointer">
+                                                <input type="checkbox" name="personalityForm" value="ลูกค้า VIP Lazada (สั่งสินค้า Online บ่อย)" class="sr-only peer">
+                                                <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                                    <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                                      🚚  ลูกค้า VIP Lazada (สั่งสินค้า Online บ่อย)
+                                                        
+                                                    </span>
+                                                </div>
+                                            </label>
+                                            </div>
+                                                <pre>
+                                                    
+                                                </pre>
+
+                                                  <h1 class="text-lg" >👔 มีความสุขกับตัวเอง/งานอดิเรก
+                                                </h1>
+                                                  <div class="md:col-span-5" >
+                                                    <pre>
+                                                        
+                                                    </pre>
+                                                    <label class="relative inline-flex items-center cursor-pointer">
+                                                        <input type="checkbox" name="personalityForm" value="ปลูกต้นไม้" class="sr-only peer">
+                                                        <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                                            <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                                                🌳ปลูกต้นไม้
+                                                            </span>
+                                                        </div>
+                                                    </label>
+                                                    <label class="relative inline-flex items-center cursor-pointer">
+                                                      <input type="checkbox" name="personalityForm" value="เลี้ยงสัตว์เลี้ยง" class="sr-only peer">
+                                                      <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                                          <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                                              🐶 เลี้ยงสัตว์เลี้ยง
+                                                          </span>
+                                                      </div>
+                                                  </label>
+                                                  <label class="relative inline-flex items-center cursor-pointer">
+                                                    <input type="checkbox" name="personalityForm" value="เลี้ยงสัตว์หายาก (Exotic)" class="sr-only peer">
+                                                    <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                                        <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                                          🐍 เลี้ยงสัตว์หายาก (Exotic)
+                                                        </span>
+                                                    </div>
+                                                </label>
+                                                    <label class="relative inline-flex items-center cursor-pointer">
+                                                        <input type="checkbox" name="personalityForm" value="ดูดวง" class="sr-only peer">
+                                                        <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                                            <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                                                🔮ดูดวง
+                                                            </span>
+                                                        </div>
+                                                    </label>
+                                                    <label class="relative inline-flex items-center cursor-pointer">
+                                                        <input type="checkbox" name="personalityForm" value="หนอนหนังสือ" class="sr-only peer">
+                                                        <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                                            <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                                                📚 หนอนหนังสือ
+                                                            </span>
+                                                        </div>
+                                                    </label>
+                                                    <label class="relative inline-flex items-center cursor-pointer">
+                                                        <input type="checkbox" name="personalityForm" value="Cosplay" class="sr-only peer">
+                                                        <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                                            <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                                                🌸 Cosplay
+                                                            </span>
+                                                        </div>
+                                                    </label>
+                                                    <label class="relative inline-flex items-center cursor-pointer">
+                                                        <input type="checkbox" name="personalityForm" value="ดูการแข่งกีฬา/E-sports" class="sr-only peer">
+                                                        <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                                            <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                                                ⚽ ดูการแข่งกีฬา/E-sports
+                                                            </span>
+                                                        </div>
+                                                    </label>
+                                                    <label class="relative inline-flex items-center cursor-pointer">
+                                                        <input type="checkbox" name="personalityForm" value="เล่นกีฬา" class="sr-only peer">
+                                                        <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                                            <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                                                🏀 เล่นกีฬา
+                                                            </span>
+                                                        </div>
+                                                    </label>
+                                                    <label class="relative inline-flex items-center cursor-pointer">
+                                                      <input type="checkbox" name="personalityForm" value="เล่นเกม" class="sr-only peer">
+                                                      <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                                          <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                                            🎮 เล่นเกม
+                                                          </span>
+                                                      </div>
+                                                  </label>
+                                                    <label class="relative inline-flex items-center cursor-pointer">
+                                                        <input type="checkbox" name="personalityForm" value="สะสม Models" class="sr-only peer">
+                                                        <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                                            <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                                                🚘สะสม Models
+                                                            </span>
+                                                        </div>
+                                                    </label>
+                                                    <label class="relative inline-flex items-center cursor-pointer">
+                                                      <input type="checkbox" name="personalityForm" value="ถ่ายภาพ" class="sr-only peer">
+                                                      <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                                          <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                                              📸 ถ่ายภาพ
+                                                          </span>
+                                                      </div>
+                                                  </label>
+                                                  <label class="relative inline-flex items-center cursor-pointer">
+                                                    <input type="checkbox" name="personalityForm" value="วาดภาพ" class="sr-only peer">
+                                                    <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                                        <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                                          🌄 วาดภาพ
+                                                        </span>
+                                                    </div>
+                                                </label>
+                                                <label class="relative inline-flex items-center cursor-pointer">
+                                                  <input type="checkbox" name="personalityForm" value="ฟังเพลง" class="sr-only peer">
+                                                  <div class="flex flex-col p-2 mt-2 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all 0 peer-checked:bg-pink-300">
+                                                      <span class="mx-2 overflow-y-hidden text-sm font-medium text-white-900 ">                                                            
+                                                        🎶 ฟังเพลง
+                                                      </span>
+                                                  </div>
+                                              </label>
+                                                    </div>
+                                                    <pre>
+
+                                                    </pre>
+
                               <div class="flex flex-row place-content-between ">
                                 <a class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded" href="/form2">
                                   Back
                                 </a>
                                 
                                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"  type="submit" onclick="
-                                 document.getElementById('sleepTimeMinForm').value=document.getElementById('sleepTimeMin').innerHTML 
-                                 document.getElementById('sleepTimeMaxForm').value=document.getElementById('sleepTimeMax').innerHTML 
+                                document.getElementById('sleepTimeMinForm').value = document.getElementById('sleepTimeMin').innerHTML
+                                document.getElementById('sleepTimeMaxForm').value = document.getElementById('sleepTimeMax').innerHTML
+
+                                console.log(document.getElementById('sleepTimeMaxForm').value)
                                  ">Submit</button>
                               </div>
                             
@@ -213,6 +830,7 @@
                         </div>
                         
                   
+                </div>
                 </div>
               </form>
               </div>
