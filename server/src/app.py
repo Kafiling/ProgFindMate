@@ -6,6 +6,9 @@ import firebase
 '''Import Modular page'''
 from fireAuth import AuthHandler
 
+'''import personalities list '''
+from personalityList import PERSONALITYLIST,CATEGORYLIST,SOCIALBUTTERFLY,FOODIE,ARTISTIC,SCHOLAR,NEATNESS,COZYNESS,HOBBY
+
 
 app = Flask(__name__, static_folder="../../static")
 app.secret_key = os.environ.get("app.secret_key")
@@ -28,8 +31,45 @@ firebaseApp = firebase.initialize_app(firebaseConfig)
 fsdb = firebaseApp.firestore()
 storage = firebaseApp.storage()
 '''Define Dorm and User Class'''
- 
 
+
+
+
+
+def findCommon(userPersonality, SCORE_OR_ANOTHERUSER_LIST,PERSONALITYLIST=PERSONALITYLIST):
+    # This function find what item are common in both 2 list ans return a list of common items
+    LIST = list(SCORE_OR_ANOTHERUSER_LIST)
+    common = []
+    i,j = 0,0
+    while i < len(userPersonality) and j < len(LIST):
+        if userPersonality[i] == LIST[j]:
+            common.append(userPersonality[i])
+            i += 1
+            j += 1
+        elif PERSONALITYLIST.index(userPersonality[i]) < PERSONALITYLIST.index(LIST[j]):
+            i += 1
+        else:
+            j += 1
+
+    return common
+        
+def calulatePersonalityScore(userPersonality, SCORELIST,PERSONALITYLIST=PERSONALITYLIST):
+    common = findCommon(userPersonality, SCORELIST)
+    score = 0
+    for item in common:
+        if item in SCORELIST: 
+            score += SCORELIST[item]
+
+    return score
+
+def calulateUserPersonalityScore(userPersonality,PERSONALITYLIST=PERSONALITYLIST,CATEGORYLIST=CATEGORYLIST):
+    userPersonalityScore = {}
+    for categoryName,scoreList in CATEGORYLIST.items(): 
+        score = calulatePersonalityScore(userPersonality,scoreList)
+        if score > 5:
+            score = 5
+        userPersonalityScore[categoryName] = score
+    return userPersonalityScore
 
 def runWithCacheControl(template):
     # Flask’s make_response make it easy to attach headers.
@@ -121,7 +161,8 @@ def form3():
         userNote = request.form.get("userNote")
         if userNote == '':
             userNote = 'ผู้ใช้ท่านนี้ไม่ได้ระบุโน๊ต'
-        print(request.form.getlist("personalityForm"))
+    personalityList = request.form.getlist("personalityForm")
+    print(personalityList)
     template = render_template('form3.html')
     return runWithCacheControl(template)
 
