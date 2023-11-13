@@ -150,9 +150,11 @@ def form2():
 @app.route('/form3',methods = ["GET","POST"])
 @login_required
 def form3():
+    #initialize
+    isSleepWithLightOn = ''
+    userNote = ''
+    userPersonality = []
     if request.method == "POST":
-        sleepTimeMin = request.form.get("sleepTimeMinForm")
-        sleepTimeMax = request.form.get("sleepTimeMaxForm")
         isSleepWithLightOn = request.form.get("isSleepWithLightOn")
         if isSleepWithLightOn =='true':
             isSleepWithLightOn = True
@@ -161,8 +163,20 @@ def form3():
         userNote = request.form.get("userNote")
         if userNote == '':
             userNote = 'ผู้ใช้ท่านนี้ไม่ได้ระบุโน๊ต'
-    personalityList = request.form.getlist("personalityForm")
-    print(personalityList)
+    userPersonality = request.form.getlist("personalityForm")
+    userPersonalityScore = calulateUserPersonalityScore(userPersonality)
+    data = {
+        'sleepTimeMin' : request.form.get("sleepTimeMinForm"),
+        'sleepTimeMax' : request.form.get("sleepTimeMaxForm"),
+        'isSleepWithLightOn' : isSleepWithLightOn,
+        'userNote' : userNote,
+        'userPersonality' : userPersonality,
+        'userPersonalityScore' : userPersonalityScore
+    }
+    user = session['user']
+    fsdb.collection('User').document(user['email']).update(data,token=user['idToken'])
+    if data['userPersonality'] != []:
+        return redirect('/findmate')
     template = render_template('form3.html')
     return runWithCacheControl(template)
 
