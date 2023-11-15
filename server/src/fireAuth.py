@@ -1,7 +1,7 @@
-from flask import Flask, render_template, make_response,redirect,Blueprint,request,session, url_for
+from flask import Flask, render_template, make_response,redirect,Blueprint,request,session
 # Import Firebase REST API library
 import firebase
-import random
+
 import os
 # Load environment variables from .env file
 from dotenv import load_dotenv
@@ -17,8 +17,7 @@ firebaseConfig = {
   'messagingSenderId': "257935959517",
   'appId': "1:257935959517:web:164dfec3b77058e4674234",
   'measurementId': "G-X69RF0FDE1",
-  'databaseURL': "",
-  'authDomain':"https://use-dormee.web.app/__/auth/handler"
+  'databaseURL': ""
 };
 
 # Instantiates a Firebase app
@@ -40,10 +39,8 @@ fsdb = firebaseApp.firestore()
 def loginGoogle():
     return redirect(auth.create_authentication_uri('google.com'))
 
-
 @AuthHandler.route('/__/auth/handler')
 def googleCallback():
-   # Generate a unique state parameter
    user = auth.sign_in_with_oauth_credential(request.url)
    session['user'] = user
    session['userEmail'] = user['email']
@@ -60,4 +57,3 @@ def googleCallback():
 def logout():
     session.clear()
     return redirect('/') 
-

@@ -30,7 +30,11 @@ firebaseConfig = {
 firebaseApp = firebase.initialize_app(firebaseConfig)
 fsdb = firebaseApp.firestore()
 storage = firebaseApp.storage()
-'''Define Dorm and User Class'''
+
+'''Define User Class'''
+class User:
+    def __init__(self,userEmail):
+        self.userEmail = userEmail
 
 
 
@@ -70,6 +74,7 @@ def calulateUserPersonalityScore(userPersonality,PERSONALITYLIST=PERSONALITYLIST
             score = 5
         userPersonalityScore[categoryName] = score
     return userPersonalityScore
+
 
 def runWithCacheControl(template):
     # Flask’s make_response make it easy to attach headers.
@@ -176,13 +181,24 @@ def form3():
     user = session['user']
     fsdb.collection('User').document(user['email']).update(data,token=user['idToken'])
     if data['userPersonality'] != []:
-        return redirect('/findmate')
+        return redirect('/dorm_advise')
     template = render_template('form3.html')
     return runWithCacheControl(template)
 
-@app.route('/dorm_advise')
+@app.route('/dorm_advise',methods = ["GET","POST"])
 @login_required
 def dorm_advise():
+    #initialize
+    interestedDorm = []
+    if request.method == "POST":
+        interestedDorm = request.form.getlist("interestedDorm")
+        data = {
+            'interestedDorm' : interestedDorm
+        }
+        user = session['user']
+        fsdb.collection('User').document(user['email']).update(data,token=user['idToken'])
+        if data['interestedDorm'] != []:
+            return redirect('/findmate')
     template = render_template('dorm_advise.html')
     return runWithCacheControl(template)
 
