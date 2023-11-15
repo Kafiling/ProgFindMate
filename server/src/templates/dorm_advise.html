@@ -10,60 +10,189 @@
     <link rel="stylesheet" type="text/css" href="importFont.css">
     <link rel="stylesheet" type="text/css" href="/static/animation.css">
 </head>
-<body class="w-screen min-h-screen bg-softWhite px-[7.5%] md:px-[20%] ">
-    <div class="min-h-screen flex flex-col place-items-center place-content-between ">
+<body class="w-screen min-h-screen bg-softWhite px-[7.5%] md:px-[20%] overflow-x-hidden">
+    <div class="min-h-screen flex flex-col place-items-center place-content-between py-8 gap-y-8 ">
+
         <!-- Header (Stepper) -->
         
-        <ol class="items-center space-y-4 sm:flex sm:space-x-8 sm:space-y-0 py-4">
-          <li class="flex items-center text-blue-600  space-x-2.5">
+        <ol class="items-center space-y-4 sm:flex sm:space-x-8 sm:space-y-0">
+            <li class="flex items-center text-gray-500  space-x-2.5">
+                <span class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 ">
+                    1
+                </span>
+                <span>
+                    <h3 class="font-medium ">Register</h3>
+                    <p class="text-sm">ข้อมูลพื้นฐาน</p>
+                </span>
+            </li>
+            <li class="flex items-center text-gray-500  space-x-2.5">
+                <span class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 " >
+                    2
+                </span>
+                <span>
+                    <h3 class="font-medium ">Academic life</h3>
+                    <p class="text-sm">ข้อมูลการศึกษา</p>
+                </span>
+            </li>
+            <li class="flex items-center text-gray-500  space-x-2.5">
+                <span class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 ">
+                    3
+                </span>
+                <span>
+                    <h3 class="font-medium ">Lifestyle and Personality</h3>
+                    <p class="text-sm">ข้อมูลไลฟ์สไตล์และบุคลิก</p>
+                </span>
+            </li>
+            <li class="flex items-center text-blue-600  space-x-2.5">
               <span class="flex items-center justify-center w-8 h-8 border border-blue-600 rounded-full shrink-0 ">
-                  1
+                  4
               </span>
               <span>
-                  <h3 class="font-xl leading-tight overflow-y-hidden">Login</h3>
-                  <p class="text-base">Step details here</p>
+                  <h3 class="font-medium ">Find your dream dorm</h3>
+                  <p class="text-sm">หาหอพักให้กับคุณ!</p>
               </span>
           </li>
-          <li class="flex items-center text-gray-500  space-x-2.5">
-              <span class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 ">
-                  2
-              </span>
-              <span>
-                  <h3 class="font-xl leading-tight overflow-y-hidden">Edit profile</h3>
-                  <p class="text-base">Step details here</p>
-              </span>
-          </li>
-          <li class="flex items-center text-gray-500  space-x-2.5">
-              <span class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 ">
-                  3
-              </span>
-              <span>
-                  <h3 class="font-xl leading-tight overflow-y-hidden">Finish</h3>
-                  <p class="text-base">Step details here</p>
-              </span>
-          </li>
-          <li class="flex items-center text-gray-500  space-x-2.5">
-            <span class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 ">
-                4
-            </span>
-            <span>
-                <h3 class="font-xl overflow-y-hidden ">Finish</h3>
-                <p class="text-base">Step details here</p>
-            </span>
-        </li>
-      </ol>
+        </ol>
         
-        
+    
       
       <div class="min-h-screen flex flex-col py-8 bg-softWhite h-full w-full">
           <div class=" flex flex-col h-full w-full  ">
             <h2 class="text-3xl font-semibold text-gray-900 overflow-y-hidden">แนะนำหอ</h2>
             <p class="mt-1 text-1xl leading-6 text-gray-600">กรุณาเลือกหอที่ท่านสนใจ โดยสามารถเลือกได้มากกว่า 1 รายการ</p>
+            <center>
+                <!-- google map -->
+                <div id="1stmap" class="fixed top-0 left-0 right-0 z-50 hidden overflow-x-hidden overflow-y-hidden md:inset-0 h-screen w-screen ">
+                    <div class="h-screen w-screen -z-40 bg-gray-700 opacity-60" ></div>
+                    <div class="fixed top-0 w-full h-full z-50" id="close-button1">
+                        <span class="close text-4xl overflow-y-hidden" >&times;</span>
+                        <!--Tag pre เอาไว้เว้น 2 บรรทัด อย่าลบทิ้ง-->
+                        <pre>
+
+
+                        </pre>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15503.092044594936!2d100.5265177!3d13.732188!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e298d5a96b5d1f%3A0x33e9478f3a6f1ddf!2sWish%40SamYan!5e0!3m2!1sen!2sth!4v1699198116624!5m2!1sen!2sth" width="70%" height="70%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    
+                </div>
+        
+                <div id="2ndmap" class="fixed top-0 left-0 right-0 z-50 hidden overflow-x-hidden overflow-y-hidden md:inset-0 h-screen w-screen">
+                    <div class="h-screen w-screen -z-40 bg-gray-700 opacity-60" ></div>
+                    <div class="fixed top-0 w-full h-full z-50" id="close-button2">
+                        <span class="close text-4xl overflow-y-hidden" id="close-button2">&times;</span>
+                        <pre>
+
+
+                        </pre>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.725774228931!2d100.52440147469858!3d13.735045297681992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2992a8405a121%3A0x2d6d1fe416290ab8!2sU%20Center%201!5e0!3m2!1sen!2sth!4v1699273899303!5m2!1sen!2sth" width="70%" height="70%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <div id="3rdmap" class="fixed top-0 left-0 right-0 z-50 hidden overflow-x-hidden overflow-y-hidden md:inset-0 h-screen w-screen">
+                    <div class="h-screen w-screen -z-40 bg-gray-700 opacity-60" ></div>
+                    <div class="fixed top-0 w-full h-full z-50" id="close-button3">
+                        <span class="close text-4xl overflow-y-hidden" id="close-button3">&times;</span>
+                        <pre>
+
+
+                        </pre>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.8145316362925!2d100.52572099999999!3d13.729675999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e298d4721a7c03%3A0xcc3c4ee712aa0e6d!2sNa%20Surawong!5e0!3m2!1sen!2sth!4v1698722988599!5m2!1sen!2sth" width="70%" height="70%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <div id="4thmap" class="fixed top-0 left-0 right-0 z-50 hidden overflow-x-hidden overflow-y-hidden md:inset-0 h-screen w-screen">
+                    <div class="h-screen w-screen -z-40 bg-gray-700 opacity-60" ></div>
+                    <div class="fixed top-0 w-full h-full z-50" id="close-button4">
+                        <span class="close text-4xl overflow-y-hidden" id="close-button4">&times;</span>
+                        <pre>
+
+
+                        </pre>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15503.448608057348!2d100.5277799!3d13.7267944!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29922734c2707%3A0xfdc8dc7667b0f37b!2z4Lia4LmJ4Liy4LiZ4LiZ4LmA4Lij4LioIDMzMw!5e0!3m2!1sen!2sth!4v1699931392707!5m2!1sen!2sth" width="70%" height="70%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>  
+                    </div>
+                </div>
+
+                <div id="5thmap" class="fixed top-0 left-0 right-0 z-50 hidden overflow-x-hidden overflow-y-hidden md:inset-0 h-screen w-screen">
+                    <div class="h-screen w-screen -z-40 bg-gray-700 opacity-60" ></div>
+                    <div class="fixed top-0 w-full h-full z-50" id="close-button5">
+                        <span class="close text-4xl overflow-y-hidden" id="close-button5">&times;</span>
+                        <pre>
+
+
+                        </pre>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15502.20349636943!2d100.5220691!3d13.7456197!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2996668e3c897%3A0x10c272609ef9ca57!2sPunica!5e0!3m2!1sen!2sth!4v1699931549108!5m2!1sen!2sth" width="70%" height="70%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    
+                    </div>
+                </div>
+
+                <div id="6thmap" class="fixed top-0 left-0 right-0 z-50 hidden overflow-x-hidden overflow-y-hidden md:inset-0 h-screen w-screen">
+                    <div class="h-screen w-screen -z-40 bg-gray-700 opacity-60" ></div>
+                    <div class="fixed top-0 w-full h-full z-50" id="close-button6">
+                        <span class="close text-4xl overflow-y-hidden" id="close-button6">&times;</span>
+                        <pre>
+
+
+                        </pre>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15501.566434505648!2d100.5295512!3d13.7552419!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29ecad3289f83%3A0x6c156819cd911d12!2z4Liq4Lin4Lix4Liq4LiU4Li04LmM4Lit4Lie4Liy4Lij4LmM4LiX4LmA4Lih4LiZ4LiX4LmM!5e0!3m2!1sen!2sth!4v1699931656917!5m2!1sen!2sth" width="70%" height="70%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <div id="7thmap" class="fixed top-0 left-0 right-0 z-50 hidden overflow-x-hidden overflow-y-hidden md:inset-0 h-screen w-screen">
+                    <div class="h-screen w-screen -z-40 bg-gray-700 opacity-60" ></div>
+                    <div class="fixed top-0 w-full h-full z-50" id="close-button7">
+                        <span class="close text-4xl overflow-y-hidden" id="close-button7">&times;</span>
+                        <pre>
+
+
+                        </pre>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15501.757753918304!2d100.5296912!3d13.7523529!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29eca0a4dc2e7%3A0xfb1b0caa43d0fd4e!2z4Lia4Lij4Li04Lip4Lix4LiXIOC4muC5ieC4suC4meC5gOC4ieC4peC4tOC4oeC4q-C4peC5ieC4siDguIjguLPguIHguLHguJQ!5e0!3m2!1sen!2sth!4v1699931764842!5m2!1sen!2sth" width="70%" height="70%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    
+                    </div>
+                </div>
+
+                <div id="8thmap" class="fixed top-0 left-0 right-0 z-50 hidden overflow-x-hidden overflow-y-hidden md:inset-0 h-screen w-screen">
+                    <div class="h-screen w-screen -z-40 bg-gray-700 opacity-60" ></div>
+                    <div class="fixed top-0 w-full h-full z-50" id="close-button8">
+                        <span class="close text-4xl overflow-y-hidden" id="close-button8">&times;</span>
+                        <pre>
+
+
+                        </pre>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3875.505498327823!2d100.5327202!3d13.7483618!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29fa62d8e9d4d%3A0x3cc20187110c16a!2z4LmB4Lit4LiXIOC4o-C4suC4iuC5gOC4l-C4p-C4tSBBVF9SYXRjaGF0aGV3aQ!5e0!3m2!1sen!2sth!4v1699931842162!5m2!1sen!2sth" width="70%" height="70%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    
+                    </div>
+                </div>
+
+                <div id="9thmap" class="fixed top-0 left-0 right-0 z-50 hidden overflow-x-hidden overflow-y-hidden md:inset-0 h-screen w-screen">
+                    <div class="h-screen w-screen -z-40 bg-gray-700 opacity-60" ></div>
+                    <div class="fixed top-0 w-full h-full z-50" id="close-button9">
+                        <span class="close text-4xl overflow-y-hidden" id="close-button9">&times;</span>
+                        <pre>
+
+
+                        </pre>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3875.505498327823!2d100.5327202!3d13.7483618!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29fa62d8e9d4d%3A0x3cc20187110c16a!2z4LmB4Lit4LiXIOC4o-C4suC4iuC5gOC4l-C4p-C4tSBBVF9SYXRjaGF0aGV3aQ!5e0!3m2!1sen!2sth!4v1699931842162!5m2!1sen!2sth" width="70%" height="70%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    
+                    </div>
+                </div>
+
+                <div id="10thmap" class="fixed top-0 left-0 right-0 z-50 hidden overflow-x-hidden overflow-y-hidden md:inset-0 h-screen w-screen">
+                    <div class="h-screen w-screen -z-40 bg-gray-700 opacity-60" ></div>
+                    <div class="fixed top-0 w-full h-full z-50" id="close-button10">
+                        <span class="close text-4xl overflow-y-hidden" id="close-button10">&times;</span>
+                        <pre>
+
+
+                        </pre>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.4809558741886!2d100.5328333!3d13.7498447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29ecc9ce13b41%3A0x4cb78878831f2755!2sBan%20Sukhothai!5e0!3m2!1sen!2sth!4v1699931970900!5m2!1sen!2sth" width="70%" height="70%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    
+                    </div>
+                </div>
+
+                </center>
             <div class="flex flex-col h-full w-full space-y-4 py-4">
               <div>
-              <button id="SamyanButton" data-dropdown-toggle="Samyan" class="text-black bg-white focus:ring-blue-300 font-medium rounded-t-lg text-xl px-5 py-2.5 text-center inline-flex items-center jump-button" type="button">🤝 โซนสามย่าน<svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                  </svg>
+
+                <!-- content -->
+              <button id="SamyanButton" data-dropdown-toggle="Samyan" class="text-black bg-white focus:ring-blue-300 font-medium rounded-t-lg text-xl px-5 py-2.5 text-center inline-flex items-center jump-button" type="button">🤝 โซนสามย่าน
+                    <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                    </svg>
               </button>
               <div id="Samyan" class="z-10 hidden w-full bg-white divide-y divide-gray-100 rounded-b-lg shadow element-to-animate fade-down">
                   <ul class="p-3 space-y-3 text-sm text-gray-700  " aria-labelledby="dropdownCheckboxButton">
@@ -71,10 +200,13 @@
                       <div class="flex items-center space-x-2">
                         <input id="checkbox-item-1" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500    focus:ring-2  ">
                         <section href="#" class="w-full h-auto flex flex-col lg:flex-row  items-start bg-white hover:bg-softWhite border-gray-200 rounded-lg shadow ease-in-out delay-150">
-                          <img class="flex object-cover w-full h-full md:w-48 md:h-32  rounded-lg " src="https://project.zmyhome-image.sg-sin1.upcloudobjects.com/V13916/09-28-2022-05-50-2069126647.jpg" alt="">
-                          <div class="flex flex-col justify-between p-4 leading-normal">
-                              <h5 class="py-2 text-2xl font-bold tracking-tight text-softBlack ">Wish@Samyan <a href="https://www.google.com/maps/place/Wish@SamYan/@13.732188,100.5265177,15z/data=!4m6!3m5!1s0x30e298d5a96b5d1f:0x33e9478f3a6f1ddf!8m2!3d13.732188!4d100.5265177!16s%2Fg%2F11b696pj6q?entry=ttu" class="text-base font-light text-gray-500">(คลิกเพื่อดูตำแหน่ง)</a></h5>
-                              <div class="flex flex-row space-x-4">
+                            <img class="flex object-cover w-full h-full md:w-48 md:h-32  rounded-lg " src="https://project.zmyhome-image.sg-sin1.upcloudobjects.com/V13916/09-28-2022-05-50-2069126647.jpg" alt="">
+                            <div class="flex flex-col justify-between p-4 leading-normal">
+                                <div class="flex flex-row">
+                                    <h5 class="py-2 text-2xl font-bold tracking-tight text-softBlack ">Wish@Samyan</h5>
+                                    <button data-modal-target="default-modal" data-modal-toggle="default-modal" id="1stmapButton" class="block text-gray-400 bg-transparent focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button">ดูตำแหน่ง</button>
+                                </div>
+                                <div class="flex flex-row space-x-4">
                                   <div class="flex items-center">
                                       <svg class="w-4 h-4 text-red-500 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"   viewBox="0 0 24 24">
                                           <path d="M19.5 10c-2.483 0-4.5 2.015-4.5 4.5s2.017 4.5 4.5 4.5 4.5-2.015 4.5-4.5-2.017-4.5-4.5-4.5zm2.5 5h-2v2h-1v-2h-2v-1h2v-2h1v2h2v1zm-6.527 4.593c-1.108 1.086-2.275 2.219-3.473 3.407-6.43-6.381-12-11.147-12-15.808 0-6.769 8.852-8.346 12-2.944 3.125-5.362 12-3.848 12 2.944 0 .746-.156 1.496-.423 2.253-1.116-.902-2.534-1.445-4.077-1.445-3.584 0-6.5 2.916-6.5 6.5 0 2.063.97 3.901 2.473 5.093z"/>
@@ -119,7 +251,10 @@
                           <section href="#" class="w-full h-auto flex flex-col lg:flex-row  items-start bg-white hover:bg-softWhite border-gray-200 rounded-lg shadow ease-in-out delay-150">
                             <img class="flex object-cover w-full h-full md:w-48 md:h-32  rounded-lg " src="https://lh3.googleusercontent.com/p/AF1QipMFEoi4CUEPWOVL5LfuABEsGJeolh1y7X2dKNJo=s1360-w1360-h1020" alt="">
                             <div class="flex flex-col justify-between p-4 leading-normal">
-                                <h5 class="py-2 text-2xl font-bold tracking-tight text-softBlack ">U center <a href="https://www.google.com/maps/place/U+Center+1/@13.7350453,100.5244015,17z/data=!3m1!4b1!4m16!1m9!4m8!1m0!1m6!1m2!1s0x30e2992a8405a121:0x2d6d1fe416290ab8!2zMTk4IOC4i-C4reC4oiDguIjguLjguKzguLLguK8gNDIgV2FuZyBNYWksIFBhdGh1bSBXYW4sIEJhbmdrb2sgMTAzMzA!2m2!1d100.5269737!2d13.735024!3m5!1s0x30e2992a8405a121:0x2d6d1fe416290ab8!8m2!3d13.7350401!4d100.5269764!16s%2Fg%2F11g_xz6fw?entry=ttu" class="text-base font-light text-gray-500">(คลิกเพื่อดูตำแหน่ง)</a></h5>
+                                <div class="flex flex-row">
+                                    <h5 class="py-2 text-2xl font-bold tracking-tight text-softBlack ">U center</h5>
+                                    <button id="2ndmapButton" class="block text-gray-400 bg-transparent focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-transparent " type="button">ดูตำแหน่ง</button>
+                                </div>
                                 <div class="flex flex-row space-x-4">
                                     <div class="flex items-center">
                                         <svg class="w-4 h-4 text-red-500 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"   viewBox="0 0 24 24">
@@ -165,7 +300,10 @@
                             <section href="#" class="w-full h-auto flex flex-col lg:flex-row  items-start bg-white hover:bg-softWhite border-gray-200 rounded-lg shadow ease-in-out delay-150">
                               <img class="flex object-cover w-full h-full md:w-48 md:h-32  rounded-lg " src="https://bcdn.renthub.in.th/listing_picture/201812/20181226/MZ67QL3k6SV4FhzRo5ih.jpg?class=doptimized" alt="">
                               <div class="flex flex-col justify-between p-4 leading-normal">
-                                  <h5 class="py-2 text-2xl font-bold tracking-tight text-softBlack ">ณ สุรวงศ์ <a href="https://www.google.com/maps/place/Na+Surawong/@13.7296812,100.5231461,17z/data=!3m1!4b1!4m10!3m9!1s0x30e298d4721a7c03:0xcc3c4ee712aa0e6d!5m3!1s2023-10-31!4m1!1i2!8m2!3d13.729676!4d100.525721!16s%2Fg%2F11csbfb2hk?hl=en&entry=ttu" class="text-base font-light text-gray-500">(คลิกเพื่อดูตำแหน่ง)</a></h5>
+                                <div class="flex flex-row">
+                                    <h5 class="py-2 text-2xl font-bold tracking-tight text-softBlack ">ณ สุรวงศ์</h5>
+                                    <button id="3rdmapButton" class="block text-gray-400 bg-transparent focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-transparent " type="button">ดูตำแหน่ง</button>
+                                </div>
                                   <div class="flex flex-row space-x-4">
                                       <div class="flex items-center">
                                           <svg class="w-4 h-4 text-red-500 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"   viewBox="0 0 24 24">
@@ -211,7 +349,10 @@
                             <section href="#" class="w-full h-auto flex flex-col lg:flex-row  items-start bg-white hover:bg-softWhite border-gray-200 rounded-lg shadow ease-in-out delay-150">
                               <img class="flex object-cover w-full h-full md:w-48 md:h-32  rounded-lg " src="https://bcdn.renthub.in.th/listing_picture/201209/20120925/gNmGDAjiLrHjvtDYkU1U.jpg?class=doptimized" alt="">
                               <div class="flex flex-col justify-between p-4 leading-normal">
-                                  <h5 class="py-2 text-2xl font-bold tracking-tight text-softBlack ">บ้านนเรศ <a href="https://www.google.com/maps/place/%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%99%E0%B9%80%E0%B8%A3%E0%B8%A8+333/@13.7267944,100.5277799,15.62z/data=!4m19!1m12!4m11!1m3!2m2!1d100.5255917!2d13.7372067!1m6!1m2!1s0x30e29922734c2707:0xfdc8dc7667b0f37b!2zMzMzIFNvaSBTYW50aXBoYXAgMSwg4Liq4Li14LmI4Lie4Lij4Liw4Lii4LiyIEJhbmcgUmFrLCBCYW5na29rIDEwNTAw!2m2!1d100.5262827!2d13.7310505!3m5!1s0x30e29922734c2707:0xfdc8dc7667b0f37b!8m2!3d13.7310505!4d100.5262827!16s%2Fg%2F11t_gtpny0?hl=en&entry=ttu" class="text-base font-light text-gray-500">(คลิกเพื่อดูตำแหน่ง)</a></h5>
+                                <div class="flex flex-row">
+                                    <h5 class="py-2 text-2xl font-bold tracking-tight text-softBlack ">บ้านนเรศ</h5>
+                                    <button id="4thmapButton" class="block text-gray-400 bg-transparent focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-transparent " type="button">ดูตำแหน่ง</button>
+                                </div>
                                   <div class="flex flex-row space-x-4">
                                       <div class="flex items-center">
                                           <svg class="w-4 h-4 text-red-500 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"   viewBox="0 0 24 24">
@@ -268,7 +409,10 @@
                       <section href="#" class="w-full h-auto flex flex-col lg:flex-row  items-start bg-white hover:bg-softWhite border-gray-200 rounded-lg shadow ease-in-out delay-150">
                         <img class="flex object-cover w-full h-full md:w-48 md:h-32  rounded-lg " src="https://bcdn.renthub.in.th/listing_picture/202205/20220527/pbEjDwcYPtpga5JgwAwr.jpg?class=doptimized" alt="">
                         <div class="flex flex-col justify-between p-4 leading-normal">
-                            <h5 class="py-2 text-2xl font-bold tracking-tight text-softBlack ">PUNICA <a href="https://www.google.com/maps/place/Punica/@13.7456197,100.5220691,15z/data=!4m6!3m5!1s0x30e2996668e3c897:0x10c272609ef9ca57!8m2!3d13.7456197!4d100.5220691!16s%2Fg%2F11pdy6s4s8?entry=ttu" class="text-base font-light text-gray-500">(คลิกเพื่อดูตำแหน่ง)</a></h5>
+                            <div class="flex flex-row">
+                                <h5 class="py-2 text-2xl font-bold tracking-tight text-softBlack ">PUNICA</h5>
+                                <button id="5thmapButton" class="block text-gray-400 bg-transparent focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-transparent " type="button">ดูตำแหน่ง</button>
+                            </div>
                             <div class="flex flex-row space-x-4">
                                 <div class="flex items-center">
                                     <svg class="w-4 h-4 text-red-500 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"   viewBox="0 0 24 24">
@@ -314,7 +458,10 @@
                         <section href="#" class="w-full h-auto flex flex-col lg:flex-row  items-start bg-white hover:bg-softWhite border-gray-200 rounded-lg shadow ease-in-out delay-150">
                           <img class="flex object-cover w-full h-full md:w-48 md:h-32  rounded-lg " src="https://wmcdn.renthub.in.th/listing_picture/202303/20230316/FQeFkGJ65wr8cRBFgdfq.jpg?desktop=true&class=doptimized" alt="">
                           <div class="flex flex-col justify-between p-4 leading-normal">
-                              <h5 class="py-2 text-2xl font-bold tracking-tight text-softBlack ">สวัสดิ์อพาร์ทเม้นท์ <a href="https://www.google.com/maps/place/%E0%B8%AA%E0%B8%A7%E0%B8%B1%E0%B8%AA%E0%B8%94%E0%B8%B4%E0%B9%8C%E0%B8%AD%E0%B8%9E%E0%B8%B2%E0%B8%A3%E0%B9%8C%E0%B8%97%E0%B9%80%E0%B8%A1%E0%B8%99%E0%B8%97%E0%B9%8C/@13.7552419,100.5295512,15z/data=!4m6!3m5!1s0x30e29ecad3289f83:0x6c156819cd911d12!8m2!3d13.7552419!4d100.5295512!16s%2Fg%2F1yg93p_44?entry=ttu" class="text-base font-light text-gray-500">(คลิกเพื่อดูตำแหน่ง)</a></h5>
+                            <div class="flex flex-row">
+                                <h5 class="py-2 text-2xl font-bold tracking-tight text-softBlack ">สวัสดิ์อพาร์ทเม้นท์</h5>
+                                <button id="6thmapButton" class="block text-gray-400 bg-transparent focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-transparent " type="button">ดูตำแหน่ง</button>
+                            </div>
                               <div class="flex flex-row space-x-4">
                                   <div class="flex items-center">
                                       <svg class="w-4 h-4 text-red-500 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"   viewBox="0 0 24 24">
@@ -360,8 +507,11 @@
                           <section href="#" class="w-full h-auto flex flex-col lg:flex-row  items-start bg-white hover:bg-softWhite border-gray-200 rounded-lg shadow ease-in-out delay-150">
                             <img class="flex object-cover w-full h-full md:w-48 md:h-32  rounded-lg " src="https://bcdn.renthub.in.th/listing_picture/202302/20230206/tDZb6VygMfU36tEY7rb6.jpg?class=doptimized" alt="">
                             <div class="flex flex-col justify-between p-4 leading-normal">
-                                <h5 class="py-2 text-2xl font-bold tracking-tight text-softBlack ">บ้านธรรมกิจ <a href="https://www.google.com/maps/place/%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%98%E0%B8%A3%E0%B8%A3%E0%B8%A1%E0%B8%81%E0%B8%B4%E0%B8%88+(Baan+Tham+Ma+Kit)/@13.7571838,100.5267773,15z/data=!4m6!3m5!1s0x30e29978625f1901:0xd7e9aca09e87ddeb!8m2!3d13.7571838!4d100.5267773!16s%2Fg%2F11fn1w4cd7?entry=ttu" class="text-base font-light text-gray-500">(คลิกเพื่อดูตำแหน่ง)</a></h5>
-                                <div class="flex flex-row space-x-4">
+                                <div class="flex flex-row">
+                                    <h5 class="py-2 text-2xl font-bold tracking-tight text-softBlack ">บ้านธรรมกิจ</h5>
+                                    <button id="7thmapButton" class="block text-gray-400 bg-transparent focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-transparent " type="button">ดูตำแหน่ง</button>
+                                </div>
+                               <div class="flex flex-row space-x-4">
                                     <div class="flex items-center">
                                         <svg class="w-4 h-4 text-red-500 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"   viewBox="0 0 24 24">
                                             <path d="M19.5 10c-2.483 0-4.5 2.015-4.5 4.5s2.017 4.5 4.5 4.5 4.5-2.015 4.5-4.5-2.017-4.5-4.5-4.5zm2.5 5h-2v2h-1v-2h-2v-1h2v-2h1v2h2v1zm-6.527 4.593c-1.108 1.086-2.275 2.219-3.473 3.407-6.43-6.381-12-11.147-12-15.808 0-6.769 8.852-8.346 12-2.944 3.125-5.362 12-3.848 12 2.944 0 .746-.156 1.496-.423 2.253-1.116-.902-2.534-1.445-4.077-1.445-3.584 0-6.5 2.916-6.5 6.5 0 2.063.97 3.901 2.473 5.093z"/>
@@ -417,7 +567,10 @@
                             <section href="#" class="w-full h-auto flex flex-col lg:flex-row  items-start bg-white hover:bg-softWhite border-gray-200 rounded-lg shadow ease-in-out delay-150">
                               <img class="flex object-cover w-full h-full md:w-48 md:h-32  rounded-lg " src="https://bcdn.renthub.in.th/listing_picture/201210/20121010/kisGsghiRmAZC8gZ69zh.jpg?class=doptimized" alt="">
                               <div class="flex flex-col justify-between p-4 leading-normal">
-                                  <h5 class="py-2 text-2xl font-bold tracking-tight text-softBlack ">บ้านเฉลิมหล้า <a href="https://www.google.com/maps/place/%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%A9%E0%B8%B1%E0%B8%97+%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B9%80%E0%B8%89%E0%B8%A5%E0%B8%B4%E0%B8%A1%E0%B8%AB%E0%B8%A5%E0%B9%89%E0%B8%B2+%E0%B8%88%E0%B8%B3%E0%B8%81%E0%B8%B1%E0%B8%94/@13.7523529,100.5296912,15z/data=!4m6!3m5!1s0x30e29eca0a4dc2e7:0xfb1b0caa43d0fd4e!8m2!3d13.7567715!4d100.5335536!16s%2Fg%2F1trzmd82?entry=ttu" class="text-base font-light text-gray-500">(คลิกเพื่อดูตำแหน่ง)</a></h5>
+                                <div class="flex flex-row">
+                                    <h5 class="py-2 text-2xl font-bold tracking-tight text-softBlack ">บ้านเฉลิมหล้า</h5>
+                                    <button id="8thmapButton" class="block text-gray-400 bg-transparent focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-transparent " type="button">ดูตำแหน่ง</button>
+                                </div>
                                   <div class="flex flex-row space-x-4">
                                       <div class="flex items-center">
                                           <svg class="w-4 h-4 text-red-500 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"   viewBox="0 0 24 24">
@@ -463,7 +616,10 @@
                             <section href="#" class="w-full h-auto flex flex-col lg:flex-row  items-start bg-white hover:bg-softWhite border-gray-200 rounded-lg shadow ease-in-out delay-150">
                               <img class="flex object-cover w-full h-full md:w-48 md:h-32  rounded-lg " src="https://lh3.googleusercontent.com/p/AF1QipNfv4YEEVeLCfdjqhEB2KQO5-lnFic5QQrzHjgO=s1360-w1360-h1020" alt="">
                               <div class="flex flex-col justify-between p-4 leading-normal">
-                                  <h5 class="py-2 text-2xl font-bold tracking-tight text-softBlack ">แอท ราชเทวี <a href="https://www.google.com/maps/place/%E0%B9%81%E0%B8%AD%E0%B8%97+%E0%B8%A3%E0%B8%B2%E0%B8%8A%E0%B9%80%E0%B8%97%E0%B8%A7%E0%B8%B5+AT_Ratchathewi/@13.7483618,100.5327202,17z/data=!4m15!1m8!3m7!1s0x30e29ecc7257b4f9:0xa7ec7ab9b62f7e31!2sRatchathewi+Apartment,+Khwaeng+Thanon+Phetchaburi,+Khet+Ratchathewi,+Krung+Thep+Maha+Nakhon+10400!3b1!8m2!3d13.7511756!4d100.5337073!16s%2Fg%2F12hkn5jxl!3m5!1s0x30e29fa62d8e9d4d:0x3cc20187110c16a!8m2!3d13.7509542!4d100.533661!16s%2Fg%2F11fs5dt_z_?hl=en&entry=ttu" class="text-base font-light text-gray-500">(คลิกเพื่อดูตำแหน่ง)</a></h5>
+                                <div class="flex flex-row">
+                                    <h5 class="py-2 text-2xl font-bold tracking-tight text-softBlack ">แอท ราชเทวี</h5>
+                                    <button id="9thmapButton" class="block text-gray-400 bg-transparent focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-transparent " type="button">ดูตำแหน่ง</button>
+                                </div>
                                   <div class="flex flex-row space-x-4">
                                       <div class="flex items-center">
                                           <svg class="w-4 h-4 text-red-500 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"   viewBox="0 0 24 24">
@@ -509,7 +665,10 @@
                             <section href="#" class="w-full h-auto flex flex-col lg:flex-row  items-start bg-white hover:bg-softWhite border-gray-200 rounded-lg shadow ease-in-out delay-150">
                               <img class="flex object-cover w-full h-full md:w-48 md:h-32  rounded-lg " src="https://lh3.googleusercontent.com/p/AF1QipN3ye89blzyKlc5CI7gR9cYgxYZCGn8_vhGvtez=s1360-w1360-h1020" alt="">
                               <div class="flex flex-col justify-between p-4 leading-normal">
-                                  <h5 class="py-2 text-2xl font-bold tracking-tight text-softBlack ">บ้านสุโขทัย <a href="https://www.google.com/maps/place/Ban+Sukhothai/@13.7498499,100.5302584,17z/data=!3m1!4b1!4m6!3m5!1s0x30e29ecc9ce13b41:0x4cb78878831f2755!8m2!3d13.7498447!4d100.5328333!16s%2Fg%2F1hc1tl63c?entry=ttu" class="text-base font-light text-gray-500">(คลิกเพื่อดูตำแหน่ง)</a></h5>
+                                <div class="flex flex-row">
+                                    <h5 class="py-2 text-2xl font-bold tracking-tight text-softBlack ">บ้านสุโขทัย</h5>
+                                    <button id="10thmapButton" class="block text-gray-400 bg-transparent focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-transparent " type="button">ดูตำแหน่ง</button>
+                                </div>
                                   <div class="flex flex-row space-x-4">
                                       <div class="flex items-center">
                                           <svg class="w-4 h-4 text-red-500 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"   viewBox="0 0 24 24">
@@ -554,23 +713,97 @@
             </div>
   
           </div>
-            <script>
-                document.getElementById("SamyanButton").addEventListener("click", function () {
-                    var dropdown = document.getElementById("Samyan");
-                    dropdown.classList.toggle("hidden");
-                });
-                document.getElementById("BantatthongButton").addEventListener("click", function () {
-                    var dropdown = document.getElementById("Bantatthong");
-                    dropdown.classList.toggle("hidden");
-                });
-                document.getElementById("SiamButton").addEventListener("click", function () {
-                    var dropdown = document.getElementById("Siam");
-                    dropdown.classList.toggle("hidden");
-                });
-            </script>
   
           </div>
       </div>
+      <script>
+        // zone button
+        document.getElementById("SamyanButton").addEventListener("click", function () {
+            var dropdown = document.getElementById("Samyan");
+            dropdown.classList.toggle("hidden");
+        });
+        document.getElementById("BantatthongButton").addEventListener("click", function () {
+            var dropdown = document.getElementById("Bantatthong");
+            dropdown.classList.toggle("hidden");
+        });
+        document.getElementById("SiamButton").addEventListener("click", function () {
+            var dropdown = document.getElementById("Siam");
+            dropdown.classList.toggle("hidden");
+        });
+
+        // map button
+        document.getElementById("1stmapButton").addEventListener("click", function () {
+            document.getElementById("1stmap").style.display = "block";
+        });
+        document.getElementById("close-button1").addEventListener("click", function () {
+            document.getElementById("1stmap").style.display = "none";
+        });
+
+        document.getElementById("2ndmapButton").addEventListener("click", function () {
+            document.getElementById("2ndmap").style.display = "block";
+        });
+        document.getElementById("close-button2").addEventListener("click", function () {
+            document.getElementById("2ndmap").style.display = "none";
+        });
+
+
+        document.getElementById("3rdmapButton").addEventListener("click", function () {
+            document.getElementById("3rdmap").style.display = "block";
+        });
+        document.getElementById("close-button3").addEventListener("click", function () {
+            document.getElementById("3rdmap").style.display = "none";
+        });
+
+        document.getElementById("4thmapButton").addEventListener("click", function () {
+            document.getElementById("4thmap").style.display = "block";
+        });
+        document.getElementById("close-button4").addEventListener("click", function () {
+            document.getElementById("4thmap").style.display = "none";
+        });
+
+        document.getElementById("5thmapButton").addEventListener("click", function () {
+            document.getElementById("5thmap").style.display = "block";
+        });
+        document.getElementById("close-button5").addEventListener("click", function () {
+            document.getElementById("5thmap").style.display = "none";
+        });
+
+        document.getElementById("6thmapButton").addEventListener("click", function () {
+            document.getElementById("6thmap").style.display = "block";
+        });
+        document.getElementById("close-button6").addEventListener("click", function () {
+            document.getElementById("6thmap").style.display = "none";
+        });
+
+        document.getElementById("7thmapButton").addEventListener("click", function () {
+            document.getElementById("7thmap").style.display = "block";
+        });
+        document.getElementById("close-button7").addEventListener("click", function () {
+            document.getElementById("7thmap").style.display = "none";
+        });
+
+        document.getElementById("8thmapButton").addEventListener("click", function () {
+            document.getElementById("8thmap").style.display = "block";
+        });
+        document.getElementById("close-button8").addEventListener("click", function () {
+            document.getElementById("8thmap").style.display = "none";
+        });
+
+        document.getElementById("9thmapButton").addEventListener("click", function () {
+            document.getElementById("9thmap").style.display = "block";
+        });
+        document.getElementById("close-button9").addEventListener("click", function () {
+            document.getElementById("9thmap").style.display = "none";
+        });
+
+        document.getElementById("10thmapButton").addEventListener("click", function () {
+            document.getElementById("10thmap").style.display = "block";
+        });
+        document.getElementById("close-button10").addEventListener("click", function () {
+            document.getElementById("10thmap").style.display = "none";
+        });
+        
+    </script>
     </div>
   </body>
 </html>

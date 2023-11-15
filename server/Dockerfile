@@ -11,7 +11,9 @@ RUN pip install python-dotenv
 # 5-8
 COPY src/ /app
 COPY src/ /fireAuth
+COPY src/ /fireAuth
 COPY src/ /.env
+
 WORKDIR /app
 
 # 9

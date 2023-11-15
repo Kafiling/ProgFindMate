@@ -13,6 +13,20 @@
     animation-timing-function: ease;
     animation-fill-mode: both;
 }
+
+.circle {
+    width: 150px; /* Set the width and height to control the circle's size */
+    height: 150px;
+    border-radius: 50%; /* This creates a circular clipping mask */
+    overflow: hidden; /* Hide the parts of the image outside the circle */
+    border: 5px solid #FBFAF5; /* Add a black border with a width of 2 pixels */
+}
+
+.circle img {
+    width: 100%; /* Make the image fill the circular container */
+    height: 100%;
+    object-fit: cover; /* Maintain the image's aspect ratio and cover the circle */
+}
   
 @keyframes fadeDown {
     from {
@@ -25,5 +39,9 @@
     }
 }
 
-  
-  
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
