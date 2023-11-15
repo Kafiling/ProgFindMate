@@ -35,6 +35,42 @@ storage = firebaseApp.storage()
 class User:
     def __init__(self,userEmail):
         self.userEmail = userEmail
+    def importSelfData(self):
+        self.userData = fsdb.collection('User').document(self.userEmail).get()
+        try:
+            #check if user already have interestedMate on firestore
+            #If user have -> self.interestedMate = data from firestore
+            self.interestedMate = self.userData['interestedMate']
+        except:
+            #if not -> self.interestedMate is created
+            self.interestedMate = []
+        try:
+            #check if user already have ignoredMate on firestore
+            #If user have -> self.ignoredMate = data from firestore
+            self.ignoredMate = self.userData['ignoredMate']
+        except:
+            #if not -> self.ignoredMate is created
+            self.ignoredMate = []
+        print(self.userData)
+    def addInterestedMate(self,mateEmail):
+        #IMPORTANT : make sure to importSelfData(self) before running this method
+        #this method updates self.interestedMate and update it on firestore
+        self.interestedMate.append(mateEmail)
+        data = {
+            'interestedMate' : self.interestedMate
+        }
+        fsdb.collection('User').document(self.userEmail).update(data)
+    def addIgnoredMate(self,mateEmail):
+        #IMPORTANT : make sure to importSelfData(self) before running this method
+        #this method updates self.ignoredMate and update it on firestore
+        self.ignoredMate.append(mateEmail)
+        data = {
+            'ignoredMate' : self.ignoredMate
+        }
+        fsdb.collection('User').document(self.userEmail).update(data)
+    def __str__(self): # return class object
+        return f"User : {self.userEmail}"
+
 
 
 
@@ -126,7 +162,7 @@ def form():
             }
         userImg = request.files.get("userImg")
         user = session['user'] 
-        fsdb.collection('User').document(user['email']).update(data,token=user['idToken'])
+        fsdb.collection('User').document(user['email']).update(data)
         storage.child(f"userFile/{user['email']}.jpg").put(userImg)
     
         if data['displayName'] != None:
@@ -146,7 +182,7 @@ def form2():
             'acedemicYear' : request.form.get("year") 
             }
         user = session['user'] 
-        fsdb.collection('User').document(user['email']).update(data,token=user['idToken'])
+        fsdb.collection('User').document(user['email']).update(data)
         if data['university'] != None:
             return redirect('/form3')   
     
@@ -179,7 +215,7 @@ def form3():
         'userPersonalityScore' : userPersonalityScore
     }
     user = session['user']
-    fsdb.collection('User').document(user['email']).update(data,token=user['idToken'])
+    fsdb.collection('User').document(user['email']).update(data)
     if data['userPersonality'] != []:
         return redirect('/dorm_advise')
     template = render_template('form3.html')
@@ -196,7 +232,7 @@ def dorm_advise():
             'interestedDorm' : interestedDorm
         }
         user = session['user']
-        fsdb.collection('User').document(user['email']).update(data,token=user['idToken'])
+        fsdb.collection('User').document(user['email']).update(data)
         if data['interestedDorm'] != []:
             return redirect('/findmate')
     template = render_template('dorm_advise.html')
@@ -205,6 +241,10 @@ def dorm_advise():
 @app.route('/findmate')
 @login_required
 def findmate():
+    currentUser = User(session['user']['email'])
+    print(currentUser)
+    currentUser.importSelfData()
+    
     template = render_template('findmate.html')
     return runWithCacheControl(template)
 
