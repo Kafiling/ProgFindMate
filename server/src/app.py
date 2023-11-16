@@ -54,6 +54,13 @@ class User:
     def importSelfData(self):
         self.userData = fsdb.collection('User').document(self.userEmail).get()
         try:
+             #check if user already have their profile image
+             #If user have -> self.userImg = imageURL from firestore
+            self.userImg = storage.child(f"userFile/{self.userEmail}.jpg").get_url()
+        except:
+            #if not -> self.userImg
+            self.userImg =  "https://firebasestorage.googleapis.com/v0/b/use-dormee.appspot.com/o/WebFile%2FmaleAvatra.svg?alt=media&token=5e136ced-47d7-4b0d-8257-c850bfe8dc41"
+        try:
             #check if user already have interestedMate on firestore
             #If user have -> self.interestedMate = data from firestore
             self.interestedMate = self.userData['interestedMate']
@@ -256,14 +263,20 @@ def dorm_advise():
     template = render_template('dorm_advise.html')
     return runWithCacheControl(template)
 
-@app.route('/findmate')
+@app.route('/findmate',methods = ["GET","POST"])
 @login_required
 def findmate():
     currentUser = User(session['user']['email'])
     print(currentUser)
     currentUser.importSelfData()
+    if request.method == "POST":
+        mateStatus = request.form.get("mateStatus")
+        if mateStatus == 'Interseted':
+            currentUser.addInterestedMate('test@gmail.com')
+        elif mateStatus == 'Ignored':
+            currentUser.addIgnoredMate('test@gmail.com')
     
-    return render_template('findmate.html', mate1=currentUser) 
+    return render_template('findmate.html', mate1=currentUser, mate2=currentUser) 
 
 @app.route('/matched')
 @login_required
