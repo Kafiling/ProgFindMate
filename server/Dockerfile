@@ -7,6 +7,7 @@ RUN pip install Flask gunicorn
 # 3-4 Install production dependencies.
 RUN pip install firebase-rest-api
 RUN pip install python-dotenv
+RUN pip install Jinja2
 #RUN pip install Flask-Session
 # 5-8
 COPY src/ /app

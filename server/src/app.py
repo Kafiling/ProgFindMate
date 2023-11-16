@@ -1,6 +1,7 @@
 from flask import Flask, render_template, make_response,redirect, request,session,flash
 import os
 import functools
+import datetime
 # Import Firebase REST API library
 import firebase
 '''Import Modular page'''
@@ -32,6 +33,21 @@ fsdb = firebaseApp.firestore()
 storage = firebaseApp.storage()
 
 '''Define User Class'''
+def calculateAge(userBday) :
+  userBdayYear, userBdayMonth, userBdayDay = userBday.split('-')
+  now = datetime.datetime.now()
+  nowYear, nowMonth, nowDay = now.year,now.month,now.day
+  print(nowYear, nowMonth, nowDay)
+  print(userBdayYear, userBdayMonth, userBdayDay)
+  dayDiff = int(nowDay) - int(userBdayDay)
+  monthDiff = int(nowMonth) - int(userBdayMonth)
+  if dayDiff < 0:
+      monthDiff -= 1
+  yearDiff = int(nowYear) - int(userBdayYear)
+  if monthDiff < 0:
+      yearDiff -= 1
+  return yearDiff
+
 class User:
     def __init__(self,userEmail):
         self.userEmail = userEmail
@@ -51,7 +67,8 @@ class User:
         except:
             #if not -> self.ignoredMate is created
             self.ignoredMate = []
-        print(self.userData)
+        #calculate user age from bDay relative to datetime.now
+        self.userData['userAge'] = calculateAge(self.userData['bDay'])
     def addInterestedMate(self,mateEmail):
         #IMPORTANT : make sure to importSelfData(self) before running this method
         #this method updates self.interestedMate and update it on firestore
@@ -70,6 +87,7 @@ class User:
         fsdb.collection('User').document(self.userEmail).update(data)
     def __str__(self): # return class object
         return f"User : {self.userEmail}"
+
 
 
 
@@ -245,8 +263,7 @@ def findmate():
     print(currentUser)
     currentUser.importSelfData()
     
-    template = render_template('findmate.html')
-    return runWithCacheControl(template)
+    return render_template('findmate.html', mate1=currentUser) 
 
 @app.route('/matched')
 @login_required
