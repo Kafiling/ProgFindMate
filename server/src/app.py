@@ -37,8 +37,6 @@ def calculateAge(userBday) :
   userBdayYear, userBdayMonth, userBdayDay = userBday.split('-')
   now = datetime.datetime.now()
   nowYear, nowMonth, nowDay = now.year,now.month,now.day
-  print(nowYear, nowMonth, nowDay)
-  print(userBdayYear, userBdayMonth, userBdayDay)
   dayDiff = int(nowDay) - int(userBdayDay)
   monthDiff = int(nowMonth) - int(userBdayMonth)
   if dayDiff < 0:
@@ -48,6 +46,40 @@ def calculateAge(userBday) :
       yearDiff -= 1
   return yearDiff
 
+def findCommon(userPersonality, SCORE_OR_ANOTHERUSER_LIST,PERSONALITYLIST=PERSONALITYLIST):
+    # This function find what item are common in both 2 list ans return a list of common items
+    LIST = list(SCORE_OR_ANOTHERUSER_LIST)
+    common = []
+    i,j = 0,0
+    while i < len(userPersonality) and j < len(LIST):
+        if userPersonality[i] == LIST[j]:
+            common.append(userPersonality[i])
+            i += 1
+            j += 1
+        elif PERSONALITYLIST.index(userPersonality[i]) < PERSONALITYLIST.index(LIST[j]):
+            i += 1
+        else:
+            j += 1
+
+    return common
+        
+def calulatePersonalityScore(userPersonality, SCORELIST,PERSONALITYLIST=PERSONALITYLIST):
+    common = findCommon(userPersonality, SCORELIST)
+    score = 0
+    for item in common:
+        if item in SCORELIST: 
+            score += SCORELIST[item]
+
+    return score
+
+def calulateUserPersonalityScore(userPersonality,PERSONALITYLIST=PERSONALITYLIST,CATEGORYLIST=CATEGORYLIST):
+    userPersonalityScore = {}
+    for categoryName,scoreList in CATEGORYLIST.items(): 
+        score = calulatePersonalityScore(userPersonality,scoreList)
+        if score > 5:
+            score = 5
+        userPersonalityScore[categoryName] = score
+    return userPersonalityScore
 class User:
     def __init__(self,userEmail):
         self.userEmail = userEmail
@@ -96,46 +128,44 @@ class User:
         return f"User : {self.userEmail}"
 
 
+class Recommender:
+    def __init__(self):
+        self.rankedMateByMatchPercent = []
+        currentUser = User(session['user']['email'])
+        currentUser.importSelfData()
+        # Import possible mate who have at least one same interested dorm as currentUser
+        mateDatabase = fsdb.collection('User').where('interestedDorm', 'array_contains_any',currentUser.userData['interestedDorm']).get()
 
+        # Filter out currentUser,already interested,alredy ignored
+        fliter = [currentUser.userEmail] + currentUser.interestedMate + currentUser.ignoredMate
+        print(fliter)
+        for mateDict in mateDatabase:
+            # get dictionary of each possible mate
+            for mateEmail in mateDict.keys():
+                if not (mateEmail in fliter):
+                    print('test',mateEmail)
+                    mateEmail = User(mateEmail)
+                    mateEmail.importSelfData()
+                    
+                    try:
+                        #calculate matched %
+                        commonList = findCommon(currentUser.userData['userPersonality'], mateEmail.userData['userPersonality'])
+                        matchPercent = round((len(commonList) / len(currentUser.userData['userPersonality']))*100, 2)
+                        self.rankedMateByMatchPercent.append((mateEmail.userEmail,matchPercent))
+                    except:
+                        #Mate's userPersonality not found
+                        self.rankedMateByMatchPercent.append((mateEmail.userEmail,0))
 
+        #sort rankedMateByMatchPercent
+        self.rankedMateByMatchPercent.sort(key = lambda x: x[1] ,reverse=True)
+    
 
-
-
-def findCommon(userPersonality, SCORE_OR_ANOTHERUSER_LIST,PERSONALITYLIST=PERSONALITYLIST):
-    # This function find what item are common in both 2 list ans return a list of common items
-    LIST = list(SCORE_OR_ANOTHERUSER_LIST)
-    common = []
-    i,j = 0,0
-    while i < len(userPersonality) and j < len(LIST):
-        if userPersonality[i] == LIST[j]:
-            common.append(userPersonality[i])
-            i += 1
-            j += 1
-        elif PERSONALITYLIST.index(userPersonality[i]) < PERSONALITYLIST.index(LIST[j]):
-            i += 1
-        else:
-            j += 1
-
-    return common
-        
-def calulatePersonalityScore(userPersonality, SCORELIST,PERSONALITYLIST=PERSONALITYLIST):
-    common = findCommon(userPersonality, SCORELIST)
-    score = 0
-    for item in common:
-        if item in SCORELIST: 
-            score += SCORELIST[item]
-
-    return score
-
-def calulateUserPersonalityScore(userPersonality,PERSONALITYLIST=PERSONALITYLIST,CATEGORYLIST=CATEGORYLIST):
-    userPersonalityScore = {}
-    for categoryName,scoreList in CATEGORYLIST.items(): 
-        score = calulatePersonalityScore(userPersonality,scoreList)
-        if score > 5:
-            score = 5
-        userPersonalityScore[categoryName] = score
-    return userPersonalityScore
-
+    def giveRecommendedMate(self):
+        recommendMate = self.rankedMateByMatchPercent[0]
+        nextRecommendMate = self.rankedMateByMatchPercent[1]
+        self.rankedMateByMatchPercent.pop(0)
+        print(self.rankedMateByMatchPercent)
+        return recommendMate,nextRecommendMate
 
 def runWithCacheControl(template):
     # Flask’s make_response make it easy to attach headers.
@@ -263,20 +293,31 @@ def dorm_advise():
     template = render_template('dorm_advise.html')
     return runWithCacheControl(template)
 
+
+
 @app.route('/findmate',methods = ["GET","POST"])
 @login_required
 def findmate():
     currentUser = User(session['user']['email'])
     print(currentUser)
     currentUser.importSelfData()
+    x = Recommender()
+    
+    recommendedMateTuple,nextRecommendMateTuple = x.giveRecommendedMate()
+    recommendedMate = User(recommendedMateTuple[0])
+    recommendedMate.importSelfData()
+    nextRecommendMate = User(nextRecommendMateTuple[0])
+    nextRecommendMate.importSelfData()
+    recommendedMateMatchPercent = recommendedMateTuple[1]
+    nextRecommendMateMatchPercent = nextRecommendMateTuple[1]
     if request.method == "POST":
         mateStatus = request.form.get("mateStatus")
         if mateStatus == 'Interseted':
-            currentUser.addInterestedMate('test@gmail.com')
+            currentUser.addInterestedMate(recommendedMate.userEmail)
         elif mateStatus == 'Ignored':
-            currentUser.addIgnoredMate('test@gmail.com')
+            currentUser.addIgnoredMate(recommendedMate.userEmail)
     
-    return render_template('findmate.html', mate1=currentUser, mate2=currentUser) 
+    return render_template('findmate.html', mate1=recommendedMate, mate2=nextRecommendMate, mate1MatchPercent=recommendedMateMatchPercent ,mate2MatchPercent=nextRecommendMateMatchPercent) 
 
 @app.route('/matched')
 @login_required

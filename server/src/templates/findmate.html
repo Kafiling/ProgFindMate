@@ -62,7 +62,7 @@
               <div class="demo__card-cont">
                 <div class="demo__card">
                   <div class="demo__card__top blue">
-                    <img src="{{mate1.userImg}}" class="w-full h-full object-cover">
+                    <img src="{{mate2.userImg}}" class="w-full h-full object-cover">
                   </div>
                   <div class="demo__card__btm">
                     <div class="flex flex-row px-2 justify-between">
@@ -88,7 +88,7 @@
                     
                     <ul class="flex flex-col space-y-4 items-end  ">
                       <li class="flex items-center space-x-3">
-                          <h2 class="text-base text-green-500">79% Match!</h2>
+                          <h2 class="text-base text-green-500">{{mate2MatchPercent}}% Match!</h2>
                       </li>
                       <li class="flex items-center space-x-3">
                           <span>ปี {{mate2.userData['acedemicYear']}}</span>
@@ -133,7 +133,7 @@
                     
                     <ul class="flex flex-col space-y-4 items-end  ">
                       <li class="flex items-center space-x-3">
-                          <h2 class="text-base text-green-500">79% Match!</h2>
+                          <h2 class="text-base text-green-500">{{mate1MatchPercent}}% Match!</h2>
                       </li>
                       <li class="flex items-center space-x-3">
                           <span>ปี {{mate1.userData['acedemicYear']}}</span>
