@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="/static/animation.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.css" rel="stylesheet" />
 </head>
-<body class="w-screen bg-softWhite ">
+<body class="w-screen bg-softWhite overflow-x-hidden ">
     <div class="w-screen min-h-screen flex flex-col place-items-center place-content-between ">
             <!-- Header (Number of people matched in span)-->
             <div class="fixed top-0 left-0 h-[10vh] w-full md:px-[20%] mx-auto">
@@ -181,29 +181,38 @@
 
         <!-- navbar -->
         <div class="fixed bottom-0 h-[10vh] w-full md:px-[20%] mx-auto"> 
-            <div class="grid h-full w-full grid-cols-3 mx-auto font-medium bg-primary ">
-                <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-[#FFD1E2] group py-2 transition ease-in-out delay-150">
-                    <svg class=" w-5 h-5 mb-2 text-softWhite  group-hover:text-blue-600 transition ease-in-out delay-150" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"/>
-                    </svg>
-                    <span class="text-sm text-softWhite  group-hover:text-blue-600 transition ease-in-out delay-150">Matched</span>
-                </button>
-                <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-[#FFD1E2] group py-2 transition ease-in-out delay-150">
-                    <svg class="w-5 h-5 mb-2 text-softWhite  group-hover:text-blue-600 transition ease-in-out delay-150" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M11.074 4 8.442.408A.95.95 0 0 0 7.014.254L2.926 4h8.148ZM9 13v-1a4 4 0 0 1 4-4h6V6a1 1 0 0 0-1-1H1a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h17a1 1 0 0 0 1-1v-2h-6a4 4 0 0 1-4-4Z"/>
-                        <path d="M19 10h-6a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1Zm-4.5 3.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2ZM12.62 4h2.78L12.539.41a1.086 1.086 0 1 0-1.7 1.352L12.62 4Z"/>
-                    </svg>
-                    <span class="text-sm text-softWhite  group-hover:text-blue-600 transition ease-in-out delay-150">Find Mate</span>
-                </button>
-                <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-[#FFD1E2]  group py-2 transition ease-in-out delay-150">
-                    <svg class="w-5 h-5 mb-2 text-softWhite  group-hover:text-blue-600 transition ease-in-out delay-150" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12.25V1m0 11.25a2.25 2.25 0 0 0 0 4.5m0-4.5a2.25 2.25 0 0 1 0 4.5M4 19v-2.25m6-13.5V1m0 2.25a2.25 2.25 0 0 0 0 4.5m0-4.5a2.25 2.25 0 0 1 0 4.5M10 19V7.75m6 4.5V1m0 11.25a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5ZM16 19v-2"/>
-                    </svg>
-                    <span class="text-sm text-softWhite  group-hover:text-blue-600 transition ease-in-out delay-150">Profile</span>
-                </button>
+        <section class="grid h-[10vh] w-full grid-cols-3 mx-auto font-medium bg-primary">
+      
+        <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-[#FFD1E2] group py-2 transition ease-in-out delay-150">
+          <a href="/matched" class="inline-flex flex-col items-center justify-center w-full h-full">
+            <svg class=" w-5 h-5 mb-2 text-softWhite  group-hover:text-blue-600 transition ease-in-out delay-150" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"/>
+            </svg>
+            <span class="text-sm text-softWhite  group-hover:text-blue-600 transition ease-in-out delay-150">Matched</span>
+          </a>
+          </button>
+      
+        <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-[#FFD1E2] group py-2 transition ease-in-out delay-150">
+          <a href="/findmate" class="inline-flex flex-col items-center justify-center w-full h-full">
+            <svg class="w-5 h-5 mb-2 text-softWhite  group-hover:text-blue-600 transition ease-in-out delay-150" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M11.074 4 8.442.408A.95.95 0 0 0 7.014.254L2.926 4h8.148ZM9 13v-1a4 4 0 0 1 4-4h6V6a1 1 0 0 0-1-1H1a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h17a1 1 0 0 0 1-1v-2h-6a4 4 0 0 1-4-4Z"/>
+                <path d="M19 10h-6a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1Zm-4.5 3.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2ZM12.62 4h2.78L12.539.41a1.086 1.086 0 1 0-1.7 1.352L12.62 4Z"/>
+            </svg>
+            <span class="text-sm text-softWhite  group-hover:text-blue-600 transition ease-in-out delay-150">Find Mate</span>
+          </a>
+        </button>
         
-            </div>
-        </div>
+        <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-[#FFD1E2]  group py-2 transition ease-in-out delay-150">
+          <a href="/profile" class="inline-flex flex-col items-center justify-center w-full h-full">
+            <svg class="w-5 h-5 mb-2 text-softWhite  group-hover:text-blue-600 transition ease-in-out delay-150" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12.25V1m0 11.25a2.25 2.25 0 0 0 0 4.5m0-4.5a2.25 2.25 0 0 1 0 4.5M4 19v-2.25m6-13.5V1m0 2.25a2.25 2.25 0 0 0 0 4.5m0-4.5a2.25 2.25 0 0 1 0 4.5M10 19V7.75m6 4.5V1m0 11.25a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5ZM16 19v-2"/>
+            </svg>
+            <span class="text-sm text-softWhite  group-hover:text-blue-600 transition ease-in-out delay-150">Profile</span>
+          </a>
+          </button>
+      
+    </section>
+    </div>
     </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,47 +6,58 @@
   <title>Dormee! 🏢</title>
   <link rel="stylesheet" type="text/css" href="/static/tailwindoutput.css">
   <link rel="stylesheet" type="text/css" href="tailwindoutput.css">
+  <link rel="stylesheet" type="text/css" href="/static/importFont.css">
+    <link rel="stylesheet" type="text/css" href="importFont.css">
+    <link rel="stylesheet" type="text/css" href="/static/animation.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.css" rel="stylesheet" />
 </head>
-<body class="w-screen min-h-screen bg-softWhite md:px-[20%] ">
-  <div class="min-h-screen flex flex-col place-items-center place-content-between ">
-    <!-- Header (Dorm Location)--> 
+<body class="w-screen bg-softWhite overflow-x-hidden ">
+    <div class="w-screen min-h-screen flex flex-col place-items-center gap-y-4 md:px-[20%]">
+            <!-- Header (Number of people matched in span)-->
+            <div class="fixed top-0 left-0 h-[10vh] w-full md:px-[20%] mx-auto">
+                <div class="flex flex-col py-2 w-full bg-primary place-items-center">
+                    <h1 class="flex items-center text-3xl font-semibold text-softBlack overflow-y-hidden">🙋🏻‍♂️ UserData</h1> 
+                </div>
+            </div>            
+
+            <!-- space -->
+            <div class="h-[4vh] w-full md:px-[20%] mx-auto"></div>
     
-    <!-- Header (Number of people matched in span)-->
-    <div class="fixed top-0 left-0 h-[10vh] w-full md:px-[20%] mx-auto">
-        <div class="flex flex-col py-2 w-full bg-primary place-items-center">
-            <h1 class="flex items-center text-3xl font-semibold text-softBlack overflow-y-hidden">Profile</h1>
-        </div>
-    </div>     
-    
-    <!-- content -->
-    <section id="" class="py-[15vh] flex flex-col relative w-[30vw]">
-        <img src="https://firebasestorage.googleapis.com/v0/b/use-dormee.appspot.com/o/WebFile%2FmaleAvatra.svg?alt=media&token=5e136ced-47d7-4b0d-8257-c850bfe8dc41" class="w-auto h-[20vh] ">
-        <pre>
+            <!-- content -->
+            <img src="{{mate.userImg}}">
+            <div class="flex flex-row px-2 justify-between w-full">
 
+                <ul class="flex flex-col space-y-4 text-left ">
+                  <li class="flex items-center space-x-3">
+                      <h2 class="text-xl font-bold">{{mate.userData['displayName']}}  <span class="text-sm font-medium text-gray-500">{{mate.userData['userAge']}}</span></h2>
+                  </li>
+                  <li class="flex items-center space-x-3">
+                      
+                      <span>▪️ {{mate.userData['faculty']}}</span>
+                  </li>
+                  <li class="flex items-center space-x-3">
+                      
+                      <span>▪️ {{mate.userData['university']}}</span>
+                  </li>
+                  
+              </ul>
+              
+              <ul class="flex flex-col space-y-4 items-end  ">
+                <li class="flex items-center space-x-3">
+                    <h2 class="text-base text-green-500">{{PercentMatch}}% Match!</h2>
+                </li>
+                <li class="flex items-center space-x-3">
+                    <span>ปี {{mate.userData['acedemicYear']}}</span>
+                </li>
+                
+                
+            </ul>
+              </div>
+            <!-- space -->
+            <div class="bottom-0 h-[7vh] w-full md:px-[20%] mx-auto"></div>
 
-        </pre>
-        <a href="/form" class="w-full">
-            <button type="button" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Edit personal data (Redo the resgister form)</button>
-        </a>
-        <a href="/form3" class="w-full">
-            <button type="button" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Edit personality & interested dorm</button>
-        </a>
-        <a href="/clearinteraction" class="w-full">
-            <button type="button" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Clear interested/ignore mate list</button>
-        </a>
-    
-        <pre>
-
-
-        </pre>
-        <a href="/logout" class="w-full">
-            <button type="button" class="w-full text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Log Out</button>
-        </a>
-        
-    </section>
-    <!-- navbar -->
-    <div class="fixed bottom-0 h-[10vh] w-full md:px-[20%] mx-auto"> 
+        <!-- navbar -->
+        <div class="fixed bottom-0 h-[10vh] w-full md:px-[20%] mx-auto"> 
         <section class="grid h-[10vh] w-full grid-cols-3 mx-auto font-medium bg-primary">
       
         <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-[#FFD1E2] group py-2 transition ease-in-out delay-150">
@@ -80,7 +90,7 @@
       
     </section>
     </div>
-  </div>
+    </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
