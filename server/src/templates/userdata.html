@@ -24,7 +24,7 @@
             <div class="h-[4vh] w-full md:px-[20%] mx-auto"></div>
     
             <!-- content -->
-            <img src="{{mate.userImg}}">
+            <img src="{{mate.userImg}}" class="h-[50vh] w-auto">
             <div class="flex flex-row px-2 justify-between w-full">
 
                 <ul class="flex flex-col space-y-4 text-left ">
@@ -54,6 +54,10 @@
             </ul>
               </div>
             <!-- space -->
+            <pre>
+
+            </pre>
+            <canvas id="myChart" class="!w-full !h-auto md:!w-[70%]"></canvas>
             <div class="bottom-0 h-[7vh] w-full md:px-[20%] mx-auto"></div>
 
         <!-- navbar -->
@@ -94,6 +98,67 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    //TODO convert this '{{mate.userData["userPersonalityScore"]}}' to list
+    const ctx = document.getElementById('myChart');
+    const data = {
+  labels: [
+    'รักความสะอาด',
+    'รักการเรียน',
+    'ติดสบาย',
+    'มีความสุขกับตัวเอง',
+    'หัวศิลป์เป็นเลิศ',
+    'เที่ยวเป็นชีวิตจิตใจ',
+    'เรื่องกินเรื่องใหญ่'
+  ],
+  datasets: [{
+    label: '{{mate.userEmail}}',
+    data: [0,0,0,0,0,0],
+    fill: true,
+    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+    borderColor: 'rgb(255, 99, 132)',
+    pointBackgroundColor: 'rgb(255, 99, 132)',
+    pointBorderColor: '#fff',
+    pointHoverBackgroundColor: '#fff',
+    pointHoverBorderColor: 'rgb(255, 99, 132)'
+  }, {
+    label: '{{currentUser.userEmail}}',
+    data: '{{currentUser.userData["userPersonalityScore"]}}',
+    fill: true,
+    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+    borderColor: 'rgb(54, 162, 235)',
+    pointBackgroundColor: 'rgb(54, 162, 235)',
+    pointBorderColor: '#fff',
+    pointHoverBackgroundColor: '#fff',
+    pointHoverBorderColor: 'rgb(54, 162, 235)'
+  }]
+};
+Chart.defaults.font.size = 18;
+
+    new Chart(ctx, {
+      type: 'radar',
+      data: data,
+      options: {
+        elements: {
+        line: {
+        borderWidth: 3
+        }
+        },
+      scales: {
+      r: {
+        pointLabels: {
+          font: 16
+        }
+      }
+    }
+
+  },
+    });
+  </script>
+   
+
 
 </body>
 </html>
