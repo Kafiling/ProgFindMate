@@ -16,7 +16,7 @@
             <!-- Header (Number of people matched in span)-->
             <div class="fixed top-0 left-0 h-[10vh] w-full md:px-[20%] mx-auto">
                 <div class="flex flex-col py-2 w-full bg-primary place-items-center">
-                    <h1 class="flex items-center text-3xl font-semibold text-softBlack overflow-y-hidden">🙋🏻‍♂️ UserData</h1> 
+                    <h1 class="flex items-center text-3xl font-semibold text-softBlack overflow-y-hidden">{{mate.userData["displayName"]}}</h1> 
                 </div>
             </div>            
 
@@ -101,38 +101,40 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <script>
-    //TODO convert this '{{mate.userData["userPersonalityScore"]}}' to list
+    console.log('{{mate.userData["userPersonalityScore"]["NEATNESS"]}}')
     const ctx = document.getElementById('myChart');
     const data = {
   labels: [
     'รักความสะอาด',
     'รักการเรียน',
     'ติดสบาย',
-    'มีความสุขกับตัวเอง',
+    'หนุ่มเจ้า Hobby',
     'หัวศิลป์เป็นเลิศ',
     'เที่ยวเป็นชีวิตจิตใจ',
     'เรื่องกินเรื่องใหญ่'
   ],
   datasets: [{
-    label: '{{mate.userEmail}}',
-    data: [0,0,0,0,0,0],
+    label: '{{mate.userData["displayName"]}}',
+    data: ['{{mate.userData["userPersonalityScore"]["NEATNESS"]}}','{{mate.userData["userPersonalityScore"]["SCHOLAR"]}}','{{mate.userData["userPersonalityScore"]["COZYNESS"]}}','{{mate.userData["userPersonalityScore"]["HOBBY"]}}','{{mate.userData["userPersonalityScore"]["ARTISTIC"]}}','{{mate.userData["userPersonalityScore"]["SOCIALBUTTERFLY"]}}','{{mate.userData["userPersonalityScore"]["FOODIE"]}}'],
     fill: true,
     backgroundColor: 'rgba(255, 99, 132, 0.2)',
     borderColor: 'rgb(255, 99, 132)',
     pointBackgroundColor: 'rgb(255, 99, 132)',
     pointBorderColor: '#fff',
     pointHoverBackgroundColor: '#fff',
-    pointHoverBorderColor: 'rgb(255, 99, 132)'
+    pointHoverBorderColor: 'rgb(255, 99, 132)',
+    order: '1'
   }, {
-    label: '{{currentUser.userEmail}}',
-    data: '{{currentUser.userData["userPersonalityScore"]}}',
+    label: '{{currentUser.userData["displayName"]}} (You)  ',
+    data: ['{{currentUser.userData["userPersonalityScore"]["NEATNESS"]}}','{{currentUser.userData["userPersonalityScore"]["SCHOLAR"]}}','{{currentUser.userData["userPersonalityScore"]["COZYNESS"]}}','{{currentUser.userData["userPersonalityScore"]["HOBBY"]}}','{{currentUser.userData["userPersonalityScore"]["ARTISTIC"]}}','{{currentUser.userData["userPersonalityScore"]["SOCIALBUTTERFLY"]}}','{{currentUser.userData["userPersonalityScore"]["FOODIE"]}}'],
     fill: true,
     backgroundColor: 'rgba(54, 162, 235, 0.2)',
     borderColor: 'rgb(54, 162, 235)',
     pointBackgroundColor: 'rgb(54, 162, 235)',
     pointBorderColor: '#fff',
     pointHoverBackgroundColor: '#fff',
-    pointHoverBorderColor: 'rgb(54, 162, 235)'
+    pointHoverBorderColor: 'rgb(54, 162, 235)',
+    order: '0'
   }]
 };
 Chart.defaults.font.size = 18;
