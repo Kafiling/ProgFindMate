@@ -90,7 +90,7 @@ def calculatePercentMatch(currentUser,mate):
     except:
         #Mate's userPersonality not found
         matchPercent = 0
-    return matchPercent
+    return matchPercent,commonList
 class User:
     def __init__(self,userEmail):
         self.userEmail = userEmail
@@ -143,6 +143,19 @@ class User:
             'ignoredMate' : self.ignoredMate
         }
         fsdb.collection('User').document(self.userEmail).update(data)
+    def checkMatched(self):
+        matched = []
+        for mateEmail in self.interestedMate:
+            try:
+                mateInterestedList = fsdb.collection('User').document(mateEmail).get(field_paths=['interestedMate'])
+                mateInterestedList = mateInterestedList['interestedMate']
+            except:
+                mateInterestedList = []
+            if self.userEmail in mateInterestedList:
+                matched.append(mateEmail)
+        return matched
+
+
     def __str__(self): # return class object
         return f"User : {self.userEmail}"
 
@@ -207,6 +220,8 @@ class Recommender:
                 matchDorm += [dorm]
         print(matchDorm)
         return matchDorm
+    
+
 def runWithCacheControl(template):
     # Flask’s make_response make it easy to attach headers.
     response = make_response(template)
@@ -367,8 +382,17 @@ def findmate():
 @app.route('/matched')
 @login_required
 def matched():
-    template = render_template('matched.html')
-    return runWithCacheControl(template)
+    currentUser = User(session['user']['email'])
+    currentUser.importSelfData()
+    matched = currentUser.checkMatched()
+    matchedList = []
+    for mateEmail in matched:
+        mate = User(mateEmail)
+        mate.importSelfData()
+        mate.userData['PercentMatch'],commonList = calculatePercentMatch(currentUser,mate)
+        matchedList.append(mate) 
+    lenMatch = len(matchedList)
+    return render_template('matched.html',currentUser=currentUser,matchedList=matchedList,lenMatch=lenMatch)
 
 @app.route('/profile')
 @login_required
@@ -386,8 +410,9 @@ def userdata():
     currentUser.importSelfData()
     mate = User(mateEmail)
     mate.importSelfData()
-    PercentMatch = calculatePercentMatch(currentUser,mate)
-    return render_template('userdata.html',mate=mate,currentUser=currentUser,PercentMatch=PercentMatch)
+    PercentMatch,commonList = calculatePercentMatch(currentUser,mate)
+    uniqueList = [i for i in mate.userData['userPersonality'] if (i not in commonList)]
+    return render_template('userdata.html',mate=mate,currentUser=currentUser,PercentMatch=PercentMatch,commonList=commonList,uniqueList=uniqueList)
 
 
 @app.route('/clearinteraction')

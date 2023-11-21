@@ -58,6 +58,52 @@
 
             </pre>
             <canvas id="myChart" class="!w-full !h-auto md:!w-[70%]"></canvas>
+            <h2 class="text-xl font-bold">Matched Personality</h2>
+            <div class="w-full px-4">
+            {% for i in commonList %}
+            
+              <div class="text-white bg-pink-400 hover:bg-pink-500 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 w-max inline-block">{{i}}</div>
+            
+            {% endfor %}
+          </div>
+          <div class="w-full grid gap-4 md:grid-cols-2 px-4 ">
+            <div class="w-full">
+              <h2 class="text-lg font-bold">{{mate.userData["displayName"]}}'s Personality (ที่ไม่เหมือนกับคุณ)</h2>
+              {% for i in uniqueList %}
+              
+                <div class="text-softBlack bg-gray-300 hover:bg-gray-400 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 w-max inline-block">{{i}}</div>
+              
+              {% endfor %}
+            </div>
+            <div class="w-full">
+              
+              <div class="w-full inline-flex flex-row gap-x-4">
+                <h2 class="text-lg ">เวลานอน:</h2>                
+                <div class="text-white bg-pink-400 hover:bg-pink-500 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 w-max inline-block">{{mate.userData['sleepTimeMin']}}</div>
+                <h2 class="text-xl ">-</h2>
+                <div class="text-white bg-pink-400 hover:bg-pink-500 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 w-max inline-block">{{mate.userData['sleepTimeMax']}}</div>
+                {% if mate.userData['isSleepWithLightOn'] %}
+                <h2 class="text-lg "> นอนเปิดไฟ 💡</h2>
+                {% else %}
+                <h2 class="text-lg "> นอนปิดไฟ 🌙</h2>
+                {% endif %}
+              </div>
+              <h2 class="text-lg ">มหาลัย: {{mate.userData['university']}}</h2>
+              <h2 class="text-lg ">คณะ: {{mate.userData['faculty']}}</h2>
+              <h2 class="text-lg ">สาขา: {{mate.userData['major']}}</h2>
+              {% if mate.userData['healthNote'] == '' %}
+                <h2 class="text-lg ">โรคประจำตัว: ไม่มี</h2>
+              {% else %}
+                <h2 class="text-lg ">โรคประจำตัว: {{mate.userData['healthNote']}}</h2>
+              {% endif %}
+            </div>
+          </div>
+          <div class="w-full px-4">
+            <h2 class="text-lg ">โน๊ต: {{mate.userData['userNote']}}</h2>
+          </div>
+            <pre>
+
+            </pre>
             <div class="bottom-0 h-[7vh] w-full md:px-[20%] mx-auto"></div>
 
         <!-- navbar -->

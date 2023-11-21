@@ -16,7 +16,7 @@
             <!-- Header (Number of people matched in span)-->
             <div class="fixed top-0 left-0 h-[10vh] w-full md:px-[20%] mx-auto">
                 <div class="flex flex-col py-2 w-full bg-primary place-items-center">
-                    <h1 class="flex items-center text-3xl font-semibold text-softBlack overflow-y-hidden">Matched<span class="bg-red-100 text-red-500 text-2xl mr-2 px-2.5 py-0.5 rounded dark:text-blue-800 ml-2">6&hearts;</span></h1>
+                    <h1 class="flex items-center text-3xl font-semibold text-softBlack overflow-y-hidden">Matched<span class="bg-red-100 text-red-500 text-2xl mr-2 px-2.5 py-0.5 rounded dark:text-blue-800 ml-2">{{lenMatch}}&hearts;</span></h1>
                 </div>
             </div>            
 
@@ -24,155 +24,32 @@
             <div class="h-[4vh] w-full md:px-[20%] mx-auto"></div>
     
             <!-- content -->
-            <div class="min-h-screen flex flex-col space-y-2 py-8 h-full w-auto">
+            <div class="min-h-screen flex flex-col space-y-2 py-8 h-full w-full md:px-[25%]">
                 <div class="flex flex-col h-full w-full">
+                    {% for mate in matchedList %}
                     <div class="flex space-x-2 bg-white">
                         <section href="#" class="w-full h-auto flex flex-col lg:flex-row  items-start bg-white hover:bg-softWhite border-gray-200 rounded-lg shadow ease-in-out delay-150">
                             <div class="circle">
-                                <img src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/06/19/09/garfield.jpg?width=1200&height=1200&fit=crop" alt="Circular Image">
+                                <img src="{{mate.userImg}}" alt="Circular Image">
                             </div>
-                            <div class="flex flex-col justify-between p-4 leading-normal">
-                                <div class="flex items-center space-x-4">
-                                    <a href="#" class="py-2 text-2xl font-bold tracking-tight text-softBlack hover:underline">K4filing - 18</a>
-                                    <p class="py-2 text-xl tracking-tight text-softBlack "> ♂</p>
-                                    <p class="py-2 text-xl tracking-tight text-gray-400 "> Chulalongkorn U. - Science </p>
+                            <div class="flex flex-col justify-between p-4 leading-normal w-[75%]">
+                                <div class="flex items-center place-content-between w-full">
+                                    <a href="#" class="py-2 text-2xl font-bold tracking-tight text-softBlack hover:underline">{{mate.userData["displayName"]}} - {{mate.userData['userAge']}}</a>
+                                    
+                                    <p class="py-2 text-xl tracking-tight text-gray-400 ">{{mate.userData['university']}}</p>
                                 </div>
                                 <div class="flex flex-row items-center">
                                     <div class="w-full">
-                                        <p class="py-2 text-base font-bold text-gray-500 ">🏢 Wish@Samyan </p>
+                                        <a class="z-50" href="userdata?mateEmail={{mate.userEmail}}" id="userdataLink"><span class="text-blue-600">(คลิกเพื่อดูรายละเอียด)</span></a>
                                     </div>
                                     <div class="w-full bg-gray-200 rounded-full dark:bg-gray-700">
-                                        <div class="bg-lime-300 text-xl font-medium text-white text-center p-0.5 leading-none rounded-full overflow-y-hidden" style="width: 45%"> 45%</div>
+                                        <div class="bg-lime-300 text-xl font-medium text-white text-center p-0.5 leading-none rounded-full overflow-y-hidden" style="width:{{mate.userData['PercentMatch']}}%"> {{mate.userData['PercentMatch']}}</div>
                                     </div>
                                 </div>
                             </div>
                         </section>
-                    </div>  
-                </div>
-
-                <div class="flex flex-col h-full w-full">
-                    <div class="flex space-x-2 bg-white">
-                        <section href="#" class="w-full h-auto flex flex-col lg:flex-row  items-start bg-white hover:bg-softWhite border-gray-200 rounded-lg shadow ease-in-out delay-150">
-                            <div class="circle">
-                                <img src="https://scontent.fbkk12-4.fna.fbcdn.net/v/t39.30808-6/260225853_947073882567425_4225794988701093815_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeFzZ79G_MVUm207zRW_mdr4oWJ4G_7M90GhYngb_sz3QbXGUKPghv5rMiLR6LgP686P7G-NSAJEGQfwjWqoNxY8&_nc_ohc=-RbqBcgse5AAX-UuMKZ&_nc_ht=scontent.fbkk12-4.fna&oh=00_AfAWK-EDCG3nmloQ0oE1z4vCfsE9wGAenDtYbuyCgh2GHw&oe=654C485F" alt="Circular Image">
-                            </div>
-                            <div class="flex flex-col justify-between p-4 leading-normal">
-                                <div class="flex items-center space-x-4">
-                                    <a href="#" class="py-2 text-2xl font-bold tracking-tight text-softBlack hover:underline">Prof Shin - 18</a>
-                                    <p class="py-2 text-xl tracking-tight text-softBlack "> ⚥</p>
-                                    <p class="py-2 text-xl tracking-tight text-gray-400 "> Chulalongkorn U. - Science </p>
-                                </div>
-                                <div class="flex flex-row items-center">
-                                    <div class="w-full">
-                                        <p class="py-2 text-base font-bold text-gray-500 ">🏢 Bantatthong </p>
-                                    </div>
-                                    <div class="w-full bg-gray-200 rounded-full dark:bg-gray-700">
-                                        <div class="bg-lime-300 text-xl font-medium text-white text-center p-0.5 leading-none rounded-full overflow-y-hidden" style="width: 89%"> 89%</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    </div>  
-                </div>
-
-                <div class="flex flex-col h-full w-full">
-                    <div class="flex space-x-2 bg-white">
-                        <section href="#" class="w-full h-auto flex flex-col lg:flex-row  items-start bg-white hover:bg-softWhite border-gray-200 rounded-lg shadow ease-in-out delay-150">
-                            <div class="circle">
-                                <img src="https://scontent.fbkk13-1.fna.fbcdn.net/v/t39.30808-6/341169680_945104366914443_1778809981346088608_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEjP6-TXevD7xS38k-T9mktpF3ZPjx296CkXdk-PHb3oKZ-4XBBZmU8dgde9Hx5fLG6dIac0qCPQj7SI6CaGdjk&_nc_ohc=qnlRUmc-vxcAX-98Mi4&_nc_ht=scontent.fbkk13-1.fna&oh=00_AfAt9H8XIGqsvlqqV5JF6iUMDHwih14qxCGaoEn5sqYSqw&oe=654C0742" alt="Circular Image">
-                            </div>
-                            <div class="flex flex-col justify-between p-4 leading-normal">
-                                <div class="flex items-center space-x-4">
-                                    <a href="#" class="py-2 text-2xl font-bold tracking-tight text-softBlack hover:underline">BellBeaw - 22</a>
-                                    <p class="py-2 text-xl tracking-tight text-softBlack "> ♀</p>
-                                    <p class="py-2 text-xl tracking-tight text-gray-400 "> Srinakharinwirot U. - Cosci </p>
-                                </div>
-                                <div class="flex flex-row items-center">
-                                    <div class="w-full">
-                                        <p class="py-2 text-base font-bold text-gray-500 ">🏢 ในใจชิน </p>
-                                    </div>
-                                    <div class="w-full bg-gray-200 rounded-full dark:bg-gray-700">
-                                        <div class="bg-lime-300 text-xl font-medium text-white text-center p-0.5 leading-none rounded-full overflow-y-hidden" style="width: 99%"> 99%</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    </div>  
-                </div>
-
-                <div class="flex flex-col h-full w-full">
-                    <div class="flex space-x-2 bg-white">
-                        <section href="#" class="w-full h-auto flex flex-col lg:flex-row  items-start bg-white hover:bg-softWhite border-gray-200 rounded-lg shadow ease-in-out delay-150">
-                            <div class="circle">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Sunflower_sky_backdrop.jpg" alt="Circular Image">
-                            </div>
-                            <div class="flex flex-col justify-between p-4 leading-normal">
-                                <div class="flex items-center space-x-4">
-                                    <a href="#" class="py-2 text-2xl font-bold tracking-tight text-softBlack hover:underline">Pinwa - 18</a>
-                                    <p class="py-2 text-xl tracking-tight text-softBlack "> ♀</p>
-                                    <p class="py-2 text-xl tracking-tight text-gray-400 "> Chulalongkorn U. - Science </p>
-                                </div>
-                                <div class="flex flex-row items-center">
-                                    <div class="w-full">
-                                        <p class="py-2 text-base font-bold text-gray-500 ">🏢 หอแต๋วแตก </p>
-                                    </div>
-                                    <div class="w-full bg-gray-200 rounded-full dark:bg-gray-700">
-                                        <div class="bg-lime-300 text-xl font-medium text-white text-center p-0.5 leading-none rounded-full overflow-y-hidden" style="width: 74%"> 74%</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    </div>  
-                </div>
-
-                <div class="flex flex-col h-full w-full">
-                    <div class="flex space-x-2 bg-white">
-                        <section href="#" class="w-full h-auto flex flex-col lg:flex-row  items-start bg-white hover:bg-softWhite border-gray-200 rounded-lg shadow ease-in-out delay-150">
-                            <div class="circle">
-                                <img src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/06/19/09/garfield.jpg?width=1200&height=1200&fit=crop" alt="Circular Image">
-                            </div>
-                            <div class="flex flex-col justify-between p-4 leading-normal">
-                                <div class="flex items-center space-x-4">
-                                    <a href="#" class="py-2 text-2xl font-bold tracking-tight text-softBlack hover:underline">Pinwa - 18</a>
-                                    <p class="py-2 text-xl tracking-tight text-softBlack "> ♀</p>
-                                    <p class="py-2 text-xl tracking-tight text-gray-400 "> Chulalongkorn U. - Science </p>
-                                </div>
-                                <div class="flex flex-row items-center">
-                                    <div class="w-full">
-                                        <p class="py-2 text-base font-bold text-gray-500 ">🏢 หอแต๋วแตก </p>
-                                    </div>
-                                    <div class="w-full bg-gray-200 rounded-full dark:bg-gray-700">
-                                        <div class="bg-lime-300 text-xl font-medium text-white text-center p-0.5 leading-none rounded-full overflow-y-hidden" style="width: 74%"> 74%</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    </div>  
-                </div>
-
-                <div class="flex flex-col h-full w-full">
-                    <div class="flex space-x-2 bg-white">
-                        <section href="#" class="w-full h-auto flex flex-col lg:flex-row  items-start bg-white hover:bg-softWhite border-gray-200 rounded-lg shadow ease-in-out delay-150">
-                            <div class="circle">
-                                <img src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/06/19/09/garfield.jpg?width=1200&height=1200&fit=crop" alt="Circular Image">
-                            </div>
-                            <div class="flex flex-col justify-between p-4 leading-normal">
-                                <div class="flex items-center space-x-4">
-                                    <a href="#" class="py-2 text-2xl font-bold tracking-tight text-softBlack hover:underline">Pinwa - 18</a>
-                                    <p class="py-2 text-xl tracking-tight text-softBlack "> ♀</p>
-                                    <p class="py-2 text-xl tracking-tight text-gray-400 "> Chulalongkorn U. - Science </p>
-                                </div>
-                                <div class="flex flex-row items-center">
-                                    <div class="w-full">
-                                        <p class="py-2 text-base font-bold text-gray-500 ">🏢 หอแต๋วแตก </p>
-                                    </div>
-                                    <div class="w-full bg-gray-200 rounded-full dark:bg-gray-700">
-                                        <div class="bg-lime-300 text-xl font-medium text-white text-center p-0.5 leading-none rounded-full overflow-y-hidden" style="width: 74%"> 74%</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    </div>  
+                    </div> 
+                    {% endfor %}
                 </div>
             </div>
         
