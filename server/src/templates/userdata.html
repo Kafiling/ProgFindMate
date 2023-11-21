@@ -54,6 +54,11 @@
             </ul>
               </div>
             <!-- space -->
+            {% if currentUser.userEmail in mate.userData['interestedMate'] and mate.userEmail in currentUser.userData['interestedMate']  %}
+          <div class="px-4">
+            <h2 class="text-xl font-bold text-green-500 ">Matched! ช่องทางการติดต่อ: {{mate.userData['contactNote']}}</h2>
+          </div>
+          {%endif%}
             <pre>
 
             </pre>
@@ -101,6 +106,7 @@
           <div class="w-full px-4">
             <h2 class="text-lg ">โน๊ต: {{mate.userData['userNote']}}</h2>
           </div>
+          
             <pre>
 
             </pre>
