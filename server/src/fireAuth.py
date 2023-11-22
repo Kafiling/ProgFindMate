@@ -51,6 +51,12 @@ def googleCallback():
       "userEmail": user['email']
       }
       fsdb.collection('User').document(user['email']).set(data,token=user['idToken'])
+   try:
+      # check if user is registered
+      fsdb.collection('User').document(user['email']).get(field_paths=['displayName','university','isSleepWithLightOn','interestedDorm'])
+      return redirect('/findmate')
+   except:
+      pass
    return redirect('/form')
       
 @AuthHandler.route('/logout')

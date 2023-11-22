@@ -86,7 +86,11 @@ def calculatePercentMatch(currentUser,mate):
     try:
         #calculate matched %
         commonList = findCommon(currentUser.userData['userPersonality'], mate.userData['userPersonality'])
-        matchPercent = round((len(commonList) / len(currentUser.userData['userPersonality']))*100, 2)
+        if len(currentUser.userData['userPersonality']) > len(mate.userData['userPersonality']):
+            biggestList = len(currentUser.userData['userPersonality'])
+        else:
+            biggestList = len(mate.userData['userPersonality'])
+        matchPercent = round((len(commonList) / biggestList)*100, 2)
     except:
         #Mate's userPersonality not found
         matchPercent = 0
@@ -208,7 +212,7 @@ class Recommender:
             print(self.rankedMateByMatchPercent)
             return recommendMate,nextRecommendMate
         elif self.rankedMateByMatchPercent == 1:
-            return redirect('/profile')
+            return redirect('/profile_materanout')
     def giveMatchDorm(self,mateEmail):
         currentUser = User(session['user']['email'])
         currentUser.importSelfData()
@@ -367,7 +371,7 @@ def findmate():
         nextRecommendMateMatchPercent = nextRecommendMateTuple[1]
         print(recommendedMate)
     except:
-        return redirect('/profile')
+        return redirect('/profile_materanout')
 
     if request.method == "POST":
         mateStatus = request.form.get("mateStatus")
@@ -400,6 +404,12 @@ def profile():
     template = render_template('profile.html')
     return runWithCacheControl(template)
 
+@app.route('/profile_materanout')
+@login_required
+def profileMateRanout():
+    template = render_template('profileMateRanout.html')
+    return runWithCacheControl(template)
+
 @app.route('/userdata')
 @login_required
 def userdata():
@@ -410,6 +420,7 @@ def userdata():
     currentUser.importSelfData()
     mate = User(mateEmail)
     mate.importSelfData()
+    
     PercentMatch,commonList = calculatePercentMatch(currentUser,mate)
     uniqueList = [i for i in mate.userData['userPersonality'] if (i not in commonList)]
     return render_template('userdata.html',mate=mate,currentUser=currentUser,PercentMatch=PercentMatch,commonList=commonList,uniqueList=uniqueList)
