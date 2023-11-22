@@ -2,7 +2,6 @@ from flask import Flask, render_template, make_response,redirect, request,sessio
 import os
 import functools
 import datetime
-import random
 # Import Firebase REST API library
 import firebase
 '''Import Modular page'''
@@ -192,7 +191,11 @@ class Recommender:
                     try:
                         #calculate matched %
                         commonList = findCommon(currentUser.userData['userPersonality'], mateEmail.userData['userPersonality'])
-                        matchPercent = round((len(commonList) / len(currentUser.userData['userPersonality']))*100, 2)
+                        if len(currentUser.userData['userPersonality']) > len(mateEmail.userData['userPersonality']):
+                            biggestList = len(currentUser.userData['userPersonality'])
+                        else:
+                            biggestList = len(mateEmail.userData['userPersonality'])
+                        matchPercent = round((len(commonList) / biggestList)*100, 2)
                         self.rankedMateByMatchPercent.append((mateEmail.userEmail,matchPercent))
                     except:
                         #Mate's userPersonality not found
